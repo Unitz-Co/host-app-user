@@ -1,6 +1,6 @@
 {
   "name": "@unitz/host-app-user",
-  "description": "Untiz user app hosting",
+  "description": "Untiz user web app",
   "private": true,
   "version": "0.0.1",
   "dependencies": {
