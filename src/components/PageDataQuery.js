@@ -84,6 +84,10 @@ export const PageData = ({ children }) => {
             id
             name
           }
+          enhancers {
+            id
+            name
+          }
         }
       }
       allContentfulItem {
@@ -111,6 +115,10 @@ export const PageData = ({ children }) => {
             }
           }
           component {
+            id
+            name
+          }
+          enhancers {
             id
             name
           }
