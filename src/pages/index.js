@@ -9,8 +9,6 @@ import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
-// import Layout from '../components/layout';
-// import PageData from '@uz/unitz-layout-web/LayoutMain/PageDataQuery';
 import PageData from '../data/PageDataQuery';
 
 const RootIndex = (props) => {

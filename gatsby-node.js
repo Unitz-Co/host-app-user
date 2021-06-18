@@ -1,42 +1,64 @@
-const path = require('path');
 require('@vl/mod-config/web');
 
-exports.createPages = ({ graphql, actions }) => {
-  const { createPage } = actions
+const path = require('path');
+const fs = require('fs-extra');
+const _ = require('lodash');
 
-  // return new Promise((resolve, reject) => {
-  //   const blogPost = path.resolve('./src/templates/blog-post.js')
-  //   resolve(
-  //     graphql(
-  //       `
-  //         {
-  //           allContentfulBlogPost {
-  //             edges {
-  //               node {
-  //                 title
-  //                 slug
-  //               }
-  //             }
-  //           }
-  //         }
-  //       `
-  //     ).then(result => {
-  //       if (result.errors) {
-  //         console.log(result.errors)
-  //         reject(result.errors)
-  //       }
+const glob = require('glob');
 
-  //       const posts = result.data.allContentfulBlogPost.edges
-  //       posts.forEach(post => {
-  //         createPage({
-  //           path: `/blog/${post.node.slug}/`,
-  //           component: blogPost,
-  //           context: {
-  //             slug: post.node.slug,
-  //           },
-  //         })
-  //       });
-  //     })
-  //   )
-  // })
+const items = [];
+const PREFIX_PATH = './src/templates';
+glob.sync( './src/templates/**/index.js' ).forEach( function( file ) {
+  const templateDir = file.replace('index.js', '')
+  const itemBase = templateDir.replace(PREFIX_PATH, '');
+  const templateMetaFile = path.resolve(path.join(templateDir, 'meta.js'));
+  let meta;
+  if (fs.existsSync(templateMetaFile)) {
+    meta = require(templateMetaFile);
+  }
+
+  const item = {
+    base: itemBase,
+    component: path.resolve(file),
+    meta,
+    resolvers: {
+      path: (gatsby) => {
+        if(_.isFunction(_.get(meta, 'path'))) {
+          return meta.path(item, gatsby);
+        }
+        return itemBase;
+      },
+      context: (gatsby) => {
+        if(_.isFunction(_.get(meta, 'context'))) {
+          return meta.context(item, gatsby);
+        }
+      },
+      component: () => {
+        return path.resolve(file);
+      },
+      createPages: (gatsby) => {
+        if(_.isFunction(_.get(meta, 'createPages'))) {
+          return meta.createPages(gatsby);
+        }
+      },
+    }
+  };
+
+  items.push(item);
+});
+
+exports.createPages = (gatsby) => {
+  const { graphql, actions } = gatsby;
+
+  items.map(item => {
+    const pagePath = path.join(item.base, 'slug');
+    console.log('createPage', pagePath);
+    // item.resolvers.createPages(gatsby);
+
+    actions.createPage({
+      path: item.resolvers.path(gatsby),
+      component: item.resolvers.component(gatsby),
+      context: item.resolvers.context(gatsby),
+    })
+  });
 }
