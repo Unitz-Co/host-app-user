@@ -73,7 +73,8 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "config:env": "rsync -aP ../../../config/env-app-web/packages/host-app-user/ ./",
+    "config:env": "../../../config/ws-scripts/env/config.sh",
+    "update:env": "../../../config/ws-scripts/env/update.sh",
     "dev": "gatsby develop",
     "build": "gatsby build",
     "build:inc": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
