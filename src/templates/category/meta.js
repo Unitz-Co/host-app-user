@@ -1,23 +1,48 @@
-/**
- * each template should export following function:
- * slug: (item: object, gastby) => string 
- * context: (item: object, gastby) => object
- * component: React Component
- */
+const path = require('path');
+const _ = require('lodash');
 
-// exports.path = (item, gastby) => {
+exports.createPages = async (item, gatsby) => {
+  // @update query 
+  const pages = await gatsby.graphql(`
+  query categoriesQuery {
+    allContentfulPage {
+      nodes {
+        id
+        name
+        sections {
+          ... on ContentfulSection {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }`);
 
-// };
+  const categories = _.get(pages, 'data.allContentfulPage.nodes', []);
 
-// exports.context = (item, gatsby) => {
-
-// };
-
-// exports.createPage = (item, gatsby) => {
-//   console.log('creating page', item);
-//   gatsby.actions.createPage({
-//     path: item.resolvers.path(gatsby),
-//     component: item.resolvers.component(gatsby),
-//     context: item.resolvers.context(gatsby),
-//   })
-// }
+  return Promise.all(categories.map(cat => {
+    const catSlug = _.get(cat, 'name');
+    const catPath = path.join(item.base, catSlug);
+    console.log('creating page', catPath);
+    return gatsby.actions.createPage({
+      path: catPath,
+      component: item.resolvers.component(gatsby),
+      context: {
+        id: 'id',
+        category: 'category',
+        slug: catSlug,
+      },
+    })
+  }))
+}
