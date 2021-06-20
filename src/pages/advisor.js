@@ -4,7 +4,7 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import { Helmet } from 'react-helmet';
-
+import AdvisorProfile from '@uz/unitz-pages/AdvisorProfile';
 import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
@@ -22,7 +22,7 @@ const AdvisorIndex = (props) => {
           </Layout.POS>
           <Layout.POS name="app-body">
             <div className="wrapper app-row">
-              <h2 className="section-headline">AdvisorIndex</h2>
+              <AdvisorProfile />
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">
