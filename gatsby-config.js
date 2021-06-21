@@ -1,13 +1,10 @@
-
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'production'}`,
 });
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
-  accessToken:
-    process.env.CONTENTFUL_ACCESS_TOKEN ||
-    process.env.CONTENTFUL_DELIVERY_TOKEN,
+  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || process.env.CONTENTFUL_DELIVERY_TOKEN,
 };
 
 // If you want to use the preview API please define
@@ -30,25 +27,23 @@ if (process.env.CONTENTFUL_HOST) {
 const { spaceId, accessToken } = contentfulConfig;
 
 if (!spaceId || !accessToken) {
-  throw new Error(
-    "Contentful spaceId and the access token need to be provided."
-  );
+  throw new Error('Contentful spaceId and the access token need to be provided.');
 }
 
 module.exports = {
   siteMetadata: {
-    title: "Gatsby Contentful starter",
+    title: 'Gatsby Contentful starter',
   },
-  pathPrefix: "/gatsby-contentful-starter",
+  pathPrefix: '/gatsby-contentful-starter',
   plugins: [
-    "gatsby-transformer-remark",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-react-helmet",
-    "gatsby-plugin-sharp",
+    'gatsby-transformer-remark',
+    'gatsby-transformer-sharp',
+    'gatsby-plugin-react-helmet',
+    'gatsby-plugin-sharp',
     'gatsby-plugin-postcss',
     `gatsby-plugin-sass`,
     {
-      resolve: "gatsby-source-contentful",
+      resolve: 'gatsby-source-contentful',
       options: contentfulConfig,
     },
     {
@@ -74,7 +69,7 @@ module.exports = {
     },
     'gatsby-manifest-contentful',
     {
-      resolve: "gatsby-plugin-firebase",
+      resolve: 'gatsby-plugin-firebase',
       options: {
         credentials: {
           apiKey: process.env.FIREBASE_API_KEY,
@@ -84,8 +79,8 @@ module.exports = {
           storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
           messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
           appId: process.env.FIREBASE_APP_ID,
-        }
-      }
-    }
+        },
+      },
+    },
   ],
 };

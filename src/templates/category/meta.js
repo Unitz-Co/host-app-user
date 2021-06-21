@@ -2,7 +2,7 @@ const path = require('path');
 const _ = require('lodash');
 
 exports.createPages = async (item, gatsby) => {
-  // @update query 
+  // @update query
   const pages = await gatsby.graphql(`
   query categoriesQuery {
     allContentfulPage {
@@ -31,18 +31,20 @@ exports.createPages = async (item, gatsby) => {
 
   const categories = _.get(pages, 'data.allContentfulPage.nodes', []);
 
-  return Promise.all(categories.map(cat => {
-    const catSlug = _.get(cat, 'name');
-    const catPath = path.join(item.base, catSlug);
-    console.log('creating page', catPath);
-    return gatsby.actions.createPage({
-      path: catPath,
-      component: item.resolvers.component(gatsby),
-      context: {
-        id: 'id',
-        category: 'category',
-        slug: catSlug,
-      },
+  return Promise.all(
+    categories.map((cat) => {
+      const catSlug = _.get(cat, 'name');
+      const catPath = path.join(item.base, catSlug);
+      console.log('creating page', catPath);
+      return gatsby.actions.createPage({
+        path: catPath,
+        component: item.resolvers.component(gatsby),
+        context: {
+          id: 'id',
+          category: 'category',
+          slug: catSlug,
+        },
+      });
     })
-  }))
-}
+  );
+};
