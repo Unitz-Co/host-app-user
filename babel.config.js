@@ -5,19 +5,22 @@ module.exports = function(api) {
   return {
     presets: [
       [
-        "babel-preset-gatsby",
-      {
-        "targets": {
-          "browsers": [">0.25%", "not dead"]
-        }
-      }
-      ]
-    ],  
+        'babel-preset-gatsby',
+        {
+          targets: {
+            browsers: ['>0.25%', 'not dead'],
+          },
+        },
+      ],
+    ],
     plugins: [
       'macros',
-      ['import-graphql', {
-        nodePath: path.resolve(process.cwd(), '../../modules'),
-      }]
+      [
+        'import-graphql',
+        {
+          nodePath: path.resolve(process.cwd(), '../../modules'),
+        },
+      ],
     ],
   };
 };
