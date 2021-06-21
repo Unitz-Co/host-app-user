@@ -65,7 +65,9 @@
     "dotenv": "^6.1.0",
     "firebase-tools": "^9.4.0",
     "gatsby-plugin-postcss": "^4.1.0",
+    "husky": "^6.0.0",
     "import-all.macro": "^3.1.0",
+    "lint-staged": "^11.0.0",
     "postcss": "^8.2.8",
     "prettier": "1.19.1",
     "tailwindcss": "^2.1.1"
@@ -86,6 +88,10 @@
     "firebase:deploy": "firebase deploy",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
