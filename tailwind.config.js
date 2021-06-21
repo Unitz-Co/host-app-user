@@ -12,13 +12,16 @@ module.exports = {
         warning: '#ffcc3e',
         primary: '#030047',
         primary2: 'rgb(3, 0, 71)',
+
         secondary: '#77869e',
         secondary2: 'rgb(214, 216, 221)',
         secondary3: 'rgb(87, 117, 144)',
+
         bg1: '#faf8f4',
         bg2: '#ecf0f6',
         info: '#28b7ff',
         bg3: '#fffbf3',
+        white400: 'rgba(255, 255, 255, 0.7)',
         white: '#ffffff',
         black: '#000000',
         brownGrey: '#9b9b9b',

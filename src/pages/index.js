@@ -23,10 +23,7 @@ class RootIndex extends React.Component {
               {ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}
             </Layout.POS>
             <Layout.POS name="app-body">
-              <div className="wrapper app-row">
-                <h2 className="section-headline">Home</h2>
-                <HomePage />
-              </div>
+              <HomePage />
             </Layout.POS>
             <Layout.POS name="app-footer">
               {ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}
