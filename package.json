@@ -4,6 +4,8 @@
   "private": true,
   "version": "0.0.1",
   "dependencies": {
+    "@apollo/client": "^3.3.11",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "antd": "^4.15.4",
     "bootstrap": "^4.4.1",
     "card-validator": "^8.1.0",
@@ -27,25 +29,31 @@
     "gatsby-transformer-remark": "^2.8.18",
     "gatsby-transformer-sharp": "^2.5.6",
     "gh-pages": "^3.1.0",
+    "graphql": "^15.5.0",
+    "graphql-subscriptions-client": "^0.16.0",
+    "graphql-tag": "^2.1.0",
     "i18n-js": "^3.8.0",
     "js-cookie": "^2.2.1",
-    "querystring": "^0.2.1",
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
+    "querystring": "^0.2.1",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-cool-dimensions": "^2.0.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.1.0",
     "react-icons-kit": "^1.3.1",
     "react-slick": "^0.25.2",
     "react-spinners-kit": "^1.9.1",
     "react-sweet-progress": "^1.1.2",
     "react-tabs": "^3.1.0",
     "reactstrap": "^8.4.1",
+    "rxjs": "^6.6.6",
     "slick-carousel": "^1.8.1",
+    "subscriptions-transport-ws": "^0.9.18",
+    "ws": "^7.4.3",
     "yup": "^0.28.5"
   },
   "devDependencies": {
@@ -57,13 +65,12 @@
     "dotenv": "^6.1.0",
     "firebase-tools": "^9.4.0",
     "gatsby-plugin-postcss": "^4.1.0",
+    "husky": "^6.0.0",
     "import-all.macro": "^3.1.0",
+    "lint-staged": "^11.0.0",
     "postcss": "^8.2.8",
-    "prettier": "^1.19.1",
+    "prettier": "1.19.1",
     "tailwindcss": "^2.1.1"
-  },
-  "engines": {
-    "node": ">=10.13.0"
   },
   "keywords": [
     "gatsby",
@@ -73,13 +80,18 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
-    "config:env": "rsync -aP ../../../config/env-app-web/packages/host-app-user/ ./",
+    "config:env": "../../../config/ws-scripts/env/config.sh",
+    "update:env": "../../../config/ws-scripts/env/update.sh",
     "dev": "gatsby develop",
     "build": "gatsby build",
     "build:inc": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "firebase:deploy": "firebase deploy",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,css,md}": "prettier --write"
   }
 }
