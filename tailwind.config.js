@@ -5,6 +5,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        brandb500: '#248277',
         success: '#275a53',
         danger: '#e3492b',
         danger2: 'rgb(227, 73, 43)',
@@ -13,7 +14,7 @@ module.exports = {
         primary2: 'rgb(3, 0, 71)',
         secondary: '#77869e',
         secondary2: 'rgb(214, 216, 221)',
-        secondary3: 'rgb(119, 134, 158)',
+        secondary3: 'rgb(87, 117, 144)',
         bg1: '#faf8f4',
         bg2: '#ecf0f6',
         info: '#28b7ff',
