@@ -4,8 +4,8 @@ const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
 routeStore.addRule('category', {
   url: (params) => {
-    const slug = _.get(params, 'slug') || _.snakeCase(_.get(params, 'displayName')) || _.get(params, 'id');
-    return `/category/${slugify(slug, { replacement: '-' })}`;
+    const slug = _.get(params, 'slug') || _.get(params, 'displayName') || _.get(params, 'id');
+    return `/category/${slugify(slug)}`;
   },
   parse: (urlObject) => {
     const params = {};
