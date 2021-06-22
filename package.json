@@ -52,6 +52,7 @@
     "reactstrap": "^8.4.1",
     "rxjs": "^6.6.6",
     "slick-carousel": "^1.8.1",
+    "slugify": "^1.5.3",
     "subscriptions-transport-ws": "^0.9.18",
     "ws": "^7.4.3",
     "yup": "^0.28.5"
