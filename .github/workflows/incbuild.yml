@@ -5,7 +5,7 @@ on:
     types: [publish-event]
   push:
     branches:
-      - 'master'
+      - "master"
 jobs:
   daily:
     runs-on: ubuntu-latest
@@ -93,6 +93,8 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
           CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
           CONTENTFUL_SPACE_ID_WEBSITE: ${{ secrets.CONTENTFUL_SPACE_ID_WEBSITE}}
+          CONTENTFUL_SPACE_ID_APP: ${{ secrets.CONTENTFUL_SPACE_ID_APP}}
+          CONTENTFUL_ACCESS_TOKEN_APP: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_APP}}
           CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN}}
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY}}
           FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN}}
@@ -123,6 +125,8 @@ jobs:
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
           CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
           CONTENTFUL_SPACE_ID_WEBSITE: ${{ secrets.CONTENTFUL_SPACE_ID_WEBSITE}}
+          CONTENTFUL_SPACE_ID_APP: ${{ secrets.CONTENTFUL_SPACE_ID_APP}}
+          CONTENTFUL_ACCESS_TOKEN_APP: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_APP}}
           CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN}}
           FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY}}
           FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN}}
