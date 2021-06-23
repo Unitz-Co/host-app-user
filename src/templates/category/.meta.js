@@ -1,7 +1,6 @@
 const path = require('path');
 const _ = require('lodash');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
-require('./$route');
 
 exports.createPages = async (item, gatsby) => {
   // @update query
