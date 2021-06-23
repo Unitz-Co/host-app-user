@@ -56,6 +56,14 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID_APP,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN_APP,
+        downloadLocal: true,
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,

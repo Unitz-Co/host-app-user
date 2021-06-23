@@ -1,0 +1,155 @@
+name: incbuild
+
+on:
+  repository_dispatch:
+    types: [publish-event]
+  push:
+    branches:
+      - "master"
+jobs:
+  daily:
+    runs-on: ubuntu-latest
+    env:
+      working-directory: ./ws/packages/host-app-user
+    steps:
+      - name: setup node v12
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12'
+          check-latest: true
+      - name: cleanup
+        run: |
+          rm -Rf ./*
+      - name: clone workspace
+        uses: actions/checkout@v2
+        with:
+          repository: Unitz-Co/ws-app-web
+          path: ws
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true
+      - name: clone env
+        uses: actions/checkout@v2
+        with:
+          repository: Unitz-Co/env-app-web
+          path: config/env-app-web
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true
+      - name: clone credentials
+        uses: actions/checkout@v2
+        with:
+          repository: Unitz-Co/credentials
+          path: config/credentials
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true
+      - name: clone config
+        uses: actions/checkout@v2
+        with:
+          repository: Unitz-Co/ws-scripts
+          path: config/ws-scripts
+          token: ${{ secrets.PAT_TOKEN }}
+          persist-credentials: true
+      - name: checkout submodule
+        run: |
+          cd ws
+          git config --file .gitmodules --get-regexp url | while read url; do
+            git config --file=.gitmodules $(echo "$url" | sed -E "s/git@github.com:|https:\/\/github.com\//https:\/\/${{ secrets.PAT_TOKEN }}:${{ secrets.PAT_TOKEN }}@github.com\//")
+          done
+          git submodule sync
+          git submodule update --init --recursive --remote --force
+      - name: retrive certs and env
+        working-directory: ${{env.working-directory}}
+        run: |
+          yarn config:env
+      - name: check dir
+        working-directory: ${{env.working-directory}}
+        run: |
+          PWD=$(pwd)
+      - uses: actions/cache@v2
+        id: cachenodemodules
+        with:
+          path: |
+            ${{env.working-directory}}/node_modules
+            ./ws/node_modules
+          key: ${{ runner.os }}nodemodules-${{ hashFiles('**/yarn.lock', '**/package-lock.json', '**/package.json') }}
+      - name: build modules
+        working-directory: ${{env.working-directory}}
+        if: steps.cachenodemodules.outputs.cache-hit != 'true'
+        run: |
+          yarn
+      - name: Caching Gatsby
+        id: gatsbycachebuild
+        uses: actions/cache@v2
+        with:
+          path: |
+            ${{env.working-directory}}/public
+            ${{env.working-directory}}/.cache
+          key: ${{ runner.os }}gatsbycachebuild-${{ github.run_id }}
+      - name: init build
+        working-directory: ${{env.working-directory}}
+        if: steps.gatsbycachebuild.outputs.cache-hit != 'true'
+        env:
+          NODE_TLS_REJECT_UNAUTHORIZED: 0
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID}}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
+          CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
+          CONTENTFUL_SPACE_ID_WEBSITE: ${{ secrets.CONTENTFUL_SPACE_ID_WEBSITE}}
+          CONTENTFUL_SPACE_ID_APP: ${{ secrets.CONTENTFUL_SPACE_ID_APP}}
+          CONTENTFUL_ACCESS_TOKEN_APP: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_APP}}
+          CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN}}
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY}}
+          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN}}
+          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL}}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID}}
+          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET}}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID}}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID}}
+          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID}}
+          AUTH_DOMAIN_ORIGIN: ${{ secrets.AUTH_DOMAIN_ORIGIN}}
+          APP_DOMAIN_ORIGIN: ${{ secrets.APP_DOMAIN_ORIGIN}}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
+        run: |
+          source ../../../config/ws-scripts/sm/num.sh
+          echo "BUILD_NUMBER_CUR: $BUILD_NUMBER_CUR"
+          yarn build
+          yarn firebase:deploy
+          cd ../..
+          ../config/ws-scripts/sm/tag.sh stage/n_${BUILD_NUMBER_CUR}
+          git push origin master --tags --force
+      - name: yarn build:inc
+        working-directory: ${{env.working-directory}}
+        if: steps.gatsbycachebuild.outputs.cache-hit == 'true'
+        env:
+          NODE_TLS_REJECT_UNAUTHORIZED: 0
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: 'true'
+          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID}}
+          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
+          CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
+          CONTENTFUL_SPACE_ID_WEBSITE: ${{ secrets.CONTENTFUL_SPACE_ID_WEBSITE}}
+          CONTENTFUL_SPACE_ID_APP: ${{ secrets.CONTENTFUL_SPACE_ID_APP}}
+          CONTENTFUL_ACCESS_TOKEN_APP: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_APP}}
+          CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN}}
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY}}
+          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN}}
+          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL}}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID}}
+          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET}}
+          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID}}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID}}
+          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID}}
+          AUTH_DOMAIN_ORIGIN: ${{ secrets.AUTH_DOMAIN_ORIGIN}}
+          APP_DOMAIN_ORIGIN: ${{ secrets.APP_DOMAIN_ORIGIN}}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
+        run: |
+          source ../../../config/ws-scripts/sm/num.sh
+          echo "BUILD_NUMBER_CUR: $BUILD_NUMBER_CUR"
+          yarn build:inc
+          yarn firebase:deploy
+          cd ../..
+          ../config/ws-scripts/sm/tag.sh stage/n_${BUILD_NUMBER_CUR}
+          git push origin master --tags --force
+      - uses: iRoachie/slack-github-actions@v2.3.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          status: ${{ job.status }}
+        if: ${{ always() }}

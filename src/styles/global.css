@@ -2,3 +2,5 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import '../../../../modules/gstyles/tailwind/style.css';
