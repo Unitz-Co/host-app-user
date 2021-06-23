@@ -37,6 +37,8 @@
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.1",
     "node-sass": "^5.0.0",
+    "postcss-advanced-variables": "^3.0.1",
+    "postcss-mixins": "^8.1.0",
     "querystring": "^0.2.1",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
