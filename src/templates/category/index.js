@@ -9,6 +9,8 @@ import App from '@uz/unitz-app-web/UserApp';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import { Button } from 'antd';
 
+import gstyles from '@vl/gstyles';
+
 import PageData from '../../data/PageDataQuery';
 
 export const component = (props) => {
@@ -22,6 +24,12 @@ export const component = (props) => {
             <div className="wrapper app-row">
               <h2 className="section-headline">Home</h2>
               <div>
+                <div>
+                  {gstyles.icons({
+                    name: 'apple',
+                    size: 40,
+                  })}
+                </div>
                 <div>Category</div>
                 <div>
                   <>
