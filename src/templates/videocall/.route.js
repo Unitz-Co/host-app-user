@@ -2,10 +2,10 @@ const _ = require('lodash');
 const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
-routeStore.addRule('video', {
+routeStore.addRule('videocall', {
   url: params => {
     const slug = _.get(params, 'slug') || _.get(params, 'displayName') || _.get(params, 'id');
-    return `/video/${slugify(slug)}`;
+    return `/videocall/${slugify(`${slug}`)}`;
   },
   parse: urlObject => {
     const params = {};
@@ -15,6 +15,6 @@ routeStore.addRule('video', {
     return params;
   },
   match: urlObject => {
-    return urlObject.pathname === 'video';
+    return urlObject.pathname === 'videocall';
   },
 });

@@ -11,7 +11,7 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 
 import PageData from '../data/PageDataQuery';
 
-const SearchIndex = (props) => {
+const SearchIndex = props => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
