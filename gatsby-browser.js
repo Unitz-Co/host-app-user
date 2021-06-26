@@ -9,4 +9,5 @@ import 'firebase/functions';
 import 'firebase/messaging';
 
 import importAll from 'import-all.macro';
-importAll.sync('./**/.route.js');
+const allFiles = importAll.sync('./**/.route.js');
+console.warn({ allFiles });
