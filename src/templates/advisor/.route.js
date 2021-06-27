@@ -4,14 +4,20 @@ const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
 routeStore.addRule('advisor', {
   url: (params) => {
-    const advisorId = _.get(params, 'id') || _.get(params, 'advisor_id');
-    if (advisorId) {
-      return `/advisor?id=${advisorId}`;
+    // from slug
+    const slug = _.get(params, 'slug');
+    if (slug) {
+      return slug;
     }
     // from advisor displayName
     const displayName = _.get(params, 'displayName') || _.get(params, 'display_name');
     if (displayName) {
       return `/advisor?${slugify(displayName)}`;
+    }
+    // from advisorId
+    const advisorId = _.get(params, 'id') || _.get(params, 'advisor_id');
+    if (advisorId) {
+      return `/advisor?id=${advisorId}`;
     }
     return `/advisor`;
   },

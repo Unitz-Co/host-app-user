@@ -10,6 +10,8 @@ exports.createPages = async (item, gatsby) => {
       nodes {
         id: contentful_id
         displayName
+        email
+        slug
       }
     }
   }`);
@@ -17,7 +19,7 @@ exports.createPages = async (item, gatsby) => {
   const advisors = _.get(allNodes, 'data.allContentfulAdvisorProfile.nodes', []);
 
   return Promise.all(
-    advisors.map(advisor => {
+    advisors.map((advisor) => {
       const advisorSlug = routeStore.toUrl('videocall', advisor);
       const advisorPath = path.join('/', advisorSlug);
       console.log('creating page', advisorPath);
@@ -27,6 +29,10 @@ exports.createPages = async (item, gatsby) => {
         context: {
           id: _.get(advisor, 'id', 'id'),
           slug: advisorSlug,
+          params: {
+            ...advisor,
+            service_kind: 'video',
+          },
         },
       });
     })
