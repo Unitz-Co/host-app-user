@@ -5,7 +5,7 @@ const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 routeStore.addRule('advisor', {
   url: (params) => {
     // from slug
-    const slug = _.get(params, 'slug');
+    const slug = _.get(params, 'slug') || _.get(params, 'profile.slug');
     if (slug) {
       return slug;
     }
