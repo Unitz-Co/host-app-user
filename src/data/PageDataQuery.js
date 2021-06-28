@@ -29,6 +29,9 @@ const pageDataQuery = graphql`
         id
         name
         shortText
+        richText {
+          raw
+        }
         images {
           fixed(width: 1600) {
             width
@@ -94,6 +97,9 @@ const pageDataQuery = graphql`
         id
         name
         shortText
+        richText {
+          raw
+        }
         longText
         action
         linkHref
