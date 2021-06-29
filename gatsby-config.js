@@ -108,5 +108,26 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: 'gatsby-plugin-import',
+      options: {
+        libraryName: 'antd',
+        style: false, // or 'css'
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-import',
+      options: {
+        libraryName: 'lodash',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
+      options: {
+        analyzerMode: 'server',
+        analyzerPort: '8888',
+        defaultSizes: 'gzip',
+      },
+    },
   ],
 };
