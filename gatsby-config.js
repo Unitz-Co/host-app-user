@@ -91,6 +91,24 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-svgr-svgo',
+      options: {
+        inlineSvgOptions: [
+          {
+            test: /\.(svg|svgx)$/,
+            svgoConfig: {
+              plugins: [
+                {
+                  removeViewBox: false,
+                  convertStyleToAttrs: true,
+                },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-import',
       options: {
         libraryName: 'antd',
