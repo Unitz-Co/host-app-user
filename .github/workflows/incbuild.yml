@@ -1,8 +1,6 @@
 name: incbuild
 
 on:
-  repository_dispatch:
-    types: [publish-event]
   push:
     branches:
       - "master"
