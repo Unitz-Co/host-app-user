@@ -6,6 +6,7 @@ const pageDataQuery = graphql`
       nodes {
         id
         name
+        slug
         sections {
           ... on ContentfulSection {
             id
@@ -30,6 +31,9 @@ const pageDataQuery = graphql`
         id
         name
         shortText
+        longText {
+          longText
+        }
         richText {
           raw
         }
@@ -113,8 +117,10 @@ const pageDataQuery = graphql`
         richText {
           raw
         }
+        longText {
+          longText
+        }
         className
-        longText
         action
         linkHref
         images {
@@ -151,6 +157,9 @@ const pageDataQuery = graphql`
               id
             }
           }
+        }
+        longText {
+          longText
         }
       }
     }
