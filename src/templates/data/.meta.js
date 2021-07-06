@@ -38,6 +38,9 @@ exports.createPages = async (item, gatsby) => {
         id
         name
         shortText
+        longText {
+          longText
+        }
         images {
           fixed(width: 1600) {
             width
@@ -103,7 +106,9 @@ exports.createPages = async (item, gatsby) => {
         id
         name
         shortText
-        longText
+        longText {
+          longText
+        }
         action
         linkHref
         images {

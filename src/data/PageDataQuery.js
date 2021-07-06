@@ -121,6 +121,12 @@ const pageDataQuery = graphql`
           longText
         }
         className
+        longText {
+          longText
+        }
+        detailText {
+          detailText
+        }
         action
         linkHref
         images {
