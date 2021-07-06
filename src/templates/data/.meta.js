@@ -109,6 +109,9 @@ exports.createPages = async (item, gatsby) => {
         longText {
           longText
         }
+        detailText {
+          detailText
+        }
         action
         linkHref
         images {
