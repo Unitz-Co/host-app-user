@@ -10,6 +10,7 @@ const pageDataQuery = graphql`
           ... on ContentfulSection {
             id
             name
+            className
             sys {
               type
               contentType {
@@ -52,6 +53,7 @@ const pageDataQuery = graphql`
           ... on ContentfulSection {
             id
             name
+            className
             sys {
               type
               contentType {
@@ -90,6 +92,17 @@ const pageDataQuery = graphql`
           id
           name
         }
+        contentful_id
+        sys {
+          type
+          contentType {
+            sys {
+              type
+              linkType
+              id
+            }
+          }
+        }
       }
     }
     allContentfulItem {
@@ -100,6 +113,7 @@ const pageDataQuery = graphql`
         richText {
           raw
         }
+        className
         longText
         action
         linkHref
@@ -126,6 +140,17 @@ const pageDataQuery = graphql`
         enhancers {
           id
           name
+        }
+        contentful_id
+        sys {
+          type
+          contentType {
+            sys {
+              type
+              linkType
+              id
+            }
+          }
         }
       }
     }
