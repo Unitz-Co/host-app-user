@@ -12,6 +12,7 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 import PageData from '../../data/PageDataQuery';
 
 const PaymentIndex = (props) => {
+  return null;
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>

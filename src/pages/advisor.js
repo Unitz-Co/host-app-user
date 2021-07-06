@@ -12,7 +12,7 @@ import PageData from '../data/PageDataQuery';
 
 import AdvisorProfile from '@uz/unitz-pages/AdvisorProfile';
 
-const AdvisorIndex = props => {
+const AdvisorIndex = (props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
