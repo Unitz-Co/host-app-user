@@ -10,7 +10,6 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 import { Button } from 'antd';
 
 import gstyles from '@vl/gstyles';
-
 import PageData from '../../data/PageDataQuery';
 
 export const component = (props) => {

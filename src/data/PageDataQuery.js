@@ -121,9 +121,6 @@ const pageDataQuery = graphql`
           longText
         }
         className
-        longText {
-          longText
-        }
         detailText {
           detailText
         }
@@ -166,6 +163,15 @@ const pageDataQuery = graphql`
         }
         longText {
           longText
+        }
+      }
+    }
+    allContentfulCategory {
+      nodes {
+        id: contentful_id
+        displayName
+        avatarUrl {
+          id
         }
       }
     }
