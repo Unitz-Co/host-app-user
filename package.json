@@ -67,6 +67,7 @@
     "slugify": "^1.5.3",
     "subscriptions-transport-ws": "^0.9.18",
     "ws": "^7.4.3",
+    "xss": "^1.0.9",
     "yup": "^0.28.5"
   },
   "devDependencies": {

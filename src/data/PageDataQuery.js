@@ -34,6 +34,9 @@ const pageDataQuery = graphql`
         longText {
           longText
         }
+        detailText {
+          detailText
+        }
         richText {
           raw
         }
@@ -119,6 +122,9 @@ const pageDataQuery = graphql`
         }
         longText {
           longText
+        }
+        detailText {
+          detailText
         }
         className
         detailText {
