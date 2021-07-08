@@ -7,7 +7,7 @@ import { Helmet } from 'react-helmet';
 import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
-import BeginnerGuidePage from '@uz/unitz-pages/BeginnerGuidePage';
+import TermConditionsPage from '@uz/unitz-pages/TermConditionsPage';
 import _ from 'lodash';
 import PageData from '../../data/PageDataQuery';
 
@@ -23,7 +23,7 @@ export const component = (props) => {
           <Helmet title={'siteTitle'} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <BeginnerGuidePage />
+            <TermConditionsPage />
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}</Layout.POS>
         </DIV>
