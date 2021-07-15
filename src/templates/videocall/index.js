@@ -5,12 +5,13 @@ import DIV from '@vl/redata/DIV.macro';
 
 import { Helmet } from 'react-helmet';
 import App from '@uz/unitz-app-web/UserApp';
+// import VideoPage from '@uz/unitz-pages/VideoCall';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
 import PageData from '../../data/PageDataQuery';
 
-export const component = props => {
+export const component = (props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -20,6 +21,7 @@ export const component = props => {
           <Layout.POS name="app-body">
             <div className="wrapper app-row">
               <h2 className="section-headline">Welcome To Video Page</h2>
+              <div className="relative h-screen overflow-hidden bg-main">{/* <VideoPage /> */}</div>
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}</Layout.POS>
