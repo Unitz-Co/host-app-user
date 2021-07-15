@@ -3,7 +3,6 @@ const _ = require('lodash');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
 require('@vl/mod-config/web');
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 const hasuraClient = require('@vl/mod-clients/hasuraCtf');
 
