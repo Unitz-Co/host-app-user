@@ -6,7 +6,7 @@ require('@vl/mod-config/web');
 
 const hasuraClient = require('@vl/mod-clients/hasuraCtf');
 
-const RULE_NAME = 'videocall';
+const RULE_NAME = 'voicecall';
 
 const getAllAdvisors = async () => {
   const query = hasuraClient.gql`
