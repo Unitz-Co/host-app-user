@@ -6,13 +6,20 @@ import DIV from '@vl/redata/DIV.macro';
 import { Helmet } from 'react-helmet';
 import App from '@uz/unitz-app-web/UserApp';
 
+import _ from 'lodash';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import { Button } from 'antd';
+import useRoute from '@vl/hooks/useGbRoute';
 
 import gstyles from '@vl/gstyles';
 import PageData from '../../data/PageDataQuery';
 
 export const component = (props) => {
+  const pageContext = _.get(props, 'pageContext');
+  // eslint-disable-next-line
+  const route = useRoute();
+  route.setPageContext(pageContext);
+
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>

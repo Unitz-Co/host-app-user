@@ -14,6 +14,22 @@ exports.createPages = async (item, gatsby) => {
           id
         }
         slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
       }
     }
   }`);
