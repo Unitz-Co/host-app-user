@@ -8,6 +8,8 @@ import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import ContentPageLayout from '@uz/unitz-ctf-theme/layouts/ContentPageLayout';
+import useRoute from '@vl/hooks/useGbRoute';
+
 import _ from 'lodash';
 import PageData from '../../data/PageDataQuery';
 
