@@ -11,6 +11,10 @@ exports.createPages = async (item, gatsby) => {
         id: contentful_id
         name
         slug
+        layout {
+          id
+          name
+        }
       }
     }
   }`);
@@ -21,6 +25,8 @@ exports.createPages = async (item, gatsby) => {
     pages.map((page) => {
       const pageSlug = routeStore.toUrl('page', page);
       const pagePath = path.join('/', pageSlug);
+      const pageLayout = _.get(page, 'layout.name', 'ContentPageLayout');
+
       console.log('creating page', pagePath);
       return gatsby.actions.createPage({
         path: pagePath,
@@ -30,6 +36,7 @@ exports.createPages = async (item, gatsby) => {
           slug: pageSlug,
           params: {
             ...page,
+            pageLayout,
           },
         },
       });
