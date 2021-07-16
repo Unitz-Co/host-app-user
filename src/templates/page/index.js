@@ -23,7 +23,7 @@ export const component = (props) => {
   const route = useRoute();
   route.setPageContext(pageContext);
 
-  const pageLayout = _.get(route, 'params.pageLayout');
+  const pageLayout = _.get(pageContext, 'params.pageLayout');
   const PageComponent = _.get(PageComponents, pageLayout);
 
   return (
