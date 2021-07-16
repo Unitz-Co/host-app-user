@@ -179,6 +179,27 @@ const pageDataQuery = graphql`
         avatarUrl {
           id
         }
+        icon
+        longText {
+          longText
+        }
+        slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
       }
     }
   }
