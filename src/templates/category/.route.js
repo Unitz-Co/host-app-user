@@ -5,7 +5,7 @@ const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 routeStore.addRule('category', {
   url: (params) => {
     const slug = _.get(params, 'slug') || _.get(params, 'displayName') || _.get(params, 'id');
-    return `/category/${slugify(slug)}`;
+    return `/category/${_.toLower(slugify(slug))}`;
   },
   parse: (urlObject) => {
     const params = {};
