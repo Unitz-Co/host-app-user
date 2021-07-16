@@ -6,6 +6,7 @@
   "dependencies": {
     "@apollo/client": "^3.3.11",
     "@contentful/rich-text-react-renderer": "^14.1.2",
+    "@loadable/component": "^5.15.0",
     "@svgr/webpack": "^5.5.0",
     "@tailwindcss/aspect-ratio": "^0.2.1",
     "antd": "^4.15.4",
@@ -61,6 +62,8 @@
     "react-spinners-kit": "^1.9.1",
     "react-svg": "^14.0.2",
     "react-sweet-progress": "^1.1.2",
+    "react-draggable": "^4.4.3",
+    "element-resize-detector": "^1.2.3",
     "react-tabs": "^3.1.0",
     "reactstrap": "^8.4.1",
     "rxjs": "^6.6.6",
