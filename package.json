@@ -104,6 +104,7 @@
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
+    "start:tunnel": "ngrok http 8000",
     "prepare": "husky install"
   },
   "lint-staged": {
