@@ -3,9 +3,10 @@ const _ = require('lodash');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
 require('@vl/mod-config/web');
-process.env['NODE_TLS_REJECT_UNAUTHORIZED'] = 0;
 
 const hasuraClient = require('@vl/mod-clients/hasuraCtf');
+
+const RULE_NAME = 'videocall';
 
 const getAllAdvisors = async () => {
   const query = hasuraClient.gql`
@@ -58,8 +59,9 @@ exports.createPages = async (item, gatsby) => {
         },
       };
 
-      const advisorSlug = routeStore.toUrl('videocall', advisor);
+      const advisorSlug = routeStore.toUrl(RULE_NAME, advisor);
       const advisorPath = path.join('/', advisorSlug);
+
       console.log('creating page', advisorPath);
       const pageContext = _.cloneDeep({
         id: _.get(advisor, 'id', 'id'),

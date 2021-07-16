@@ -6,6 +6,8 @@ require('@vl/mod-config/web');
 
 const hasuraClient = require('@vl/mod-clients/hasuraCtf');
 
+const RULE_NAME = 'message';
+
 const getAllAdvisors = async () => {
   const query = hasuraClient.gql`
     query advisor {
@@ -42,7 +44,6 @@ exports.createPages = async (item, gatsby) => {
       }
     }
   }`);
-  console.log({ allNodes });
   const advisors = await getAllAdvisors();
   const advisorProfiles = _.get(allNodes, 'data.allContentfulAdvisorProfile.nodes', []);
   const advisorProfilesMapByProfileId = _.keyBy(advisorProfiles, 'id');
@@ -58,18 +59,20 @@ exports.createPages = async (item, gatsby) => {
         },
       };
 
-      const paymentSlug = routeStore.toUrl('payment', advisor);
-      const paymentPath = path.join('/', paymentSlug);
-      console.log('creating page', paymentPath);
+      const advisorSlug = routeStore.toUrl(RULE_NAME, advisor);
+      const advisorPath = path.join('/', advisorSlug);
+
+      console.log('creating page', advisorPath);
       const pageContext = _.cloneDeep({
         id: _.get(advisor, 'id', 'id'),
-        slug: paymentSlug,
+        slug: advisorSlug,
         params: {
           ...advisor,
+          service_kind: 'video',
         },
       });
       return gatsby.actions.createPage({
-        path: paymentPath,
+        path: advisorPath,
         component: item.resolvers.component(gatsby),
         context: pageContext,
       });

@@ -2,7 +2,7 @@ const _ = require('lodash');
 const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
-const RULE_NAME = 'videocall';
+const RULE_NAME = 'message';
 
 routeStore.addRule(RULE_NAME, {
   url: (params) => {
