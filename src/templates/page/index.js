@@ -17,6 +17,7 @@ const PageComponents = {
 
 export const component = (props) => {
   const pageContext = _.get(props, 'pageContext');
+  // eslint-disable-next-line
   const route = useRoute();
   route.setPageContext(pageContext);
 
