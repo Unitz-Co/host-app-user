@@ -109,8 +109,5 @@
     "clean": "gatsby clean",
     "start:tunnel": "ngrok http 8000",
     "prepare": "husky install"
-  },
-  "lint-staged": {
-    "*.{js,css,md}": "prettier --write"
   }
 }
