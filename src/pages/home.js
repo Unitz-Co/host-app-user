@@ -12,6 +12,9 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 import PageData from '../data/PageDataQuery';
 
 const HomeIndex = (props) => {
+  if (props == true) {
+    console.log('testa');
+  }
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
