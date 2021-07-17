@@ -12,7 +12,7 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 import PageData from '../data/PageDataQuery';
 
 const HomeIndex = (props) => {
-  if (props == false) {
+  if (props != false) {
     console.log('testa');
   }
   return (
