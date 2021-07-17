@@ -42,7 +42,6 @@ exports.createPages = async (item, gatsby) => {
       }
     }
   }`);
-  console.log({ allNodes });
   const advisors = await getAllAdvisors();
   const advisorProfiles = _.get(allNodes, 'data.allContentfulAdvisorProfile.nodes', []);
   const advisorProfilesMapByProfileId = _.keyBy(advisorProfiles, 'id');
