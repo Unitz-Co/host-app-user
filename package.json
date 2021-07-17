@@ -106,6 +106,9 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "start:tunnel": "ngrok http 8000",
+    "lint": "eslint ./",
+    "lint-fix": "eslint ./ --fix",
+    "postinstall": "yarn prepare",
     "prepare": "husky install",
     "precommit": "lint-staged"
   }
