@@ -4,7 +4,7 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import { Helmet } from 'react-helmet';
-import PaymentPage from '@uz/unitz-pages/Payment';
+// import PaymentPage from '@uz/unitz-pages/Payment';
 import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
@@ -12,7 +12,6 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 import PageData from '../../data/PageDataQuery';
 
 const PaymentIndex = (props) => {
-  return null;
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -23,7 +22,7 @@ const PaymentIndex = (props) => {
             <div className="bg-white500">
               <div className="wrapper app-row">
                 Hello Payment
-                <PaymentPage />
+                {/* <PaymentPage /> */}
               </div>
             </div>
           </Layout.POS>
