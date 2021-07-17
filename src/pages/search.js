@@ -9,8 +9,8 @@ import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
-import PageData from '../data/PageDataQuery';
 import SearchPage from '@uz/unitz-pages/SearchPage';
+import PageData from '../data/PageDataQuery';
 
 const SearchIndex = (props) => {
   return (

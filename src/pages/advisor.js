@@ -8,9 +8,8 @@ import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
-import PageData from '../data/PageDataQuery';
-
 import AdvisorProfile from '@uz/unitz-pages/AdvisorProfile';
+import PageData from '../data/PageDataQuery';
 
 const AdvisorIndex = (props) => {
   return (
