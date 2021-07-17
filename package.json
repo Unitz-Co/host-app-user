@@ -83,9 +83,7 @@
     "dotenv": "^6.1.0",
     "firebase-tools": "^9.4.0",
     "gatsby-plugin-postcss": "^4.1.0",
-    "husky": "4",
     "import-all.macro": "^3.1.0",
-    "lint-staged": "^11.0.0",
     "postcss": "^8.2.8",
     "prettier": "1.19.1",
     "tailwindcss": "^2.1.1"
@@ -108,6 +106,7 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "start:tunnel": "ngrok http 8000",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "precommit": "lint-staged"
   }
 }
