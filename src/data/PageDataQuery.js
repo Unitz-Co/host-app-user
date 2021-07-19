@@ -132,6 +132,7 @@ const pageDataQuery = graphql`
         }
         action
         linkHref
+        slug
         images {
           fixed(width: 1600) {
             width
