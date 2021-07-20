@@ -179,6 +179,9 @@ const pageDataQuery = graphql`
         displayName
         avatarUrl {
           id
+          fixed {
+            src
+          }
         }
         icon
         longText {
