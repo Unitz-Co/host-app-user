@@ -100,6 +100,7 @@
     "build": "gatsby build",
     "build:inc": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "firebase:deploy": "firebase deploy",
+    "unitzvn:deploy": "rclone sync public remote:httpdocs",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",

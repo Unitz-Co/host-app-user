@@ -145,3 +145,17 @@ jobs:
         run: |
           yarn build:inc
           yarn firebase:deploy
+      - name: yarn unitzvn:deploy
+        env:
+          UNITZ_VN_FTP_HOST: ${{ secrets.UNITZ_VN_FTP_HOST}}
+          UNITZ_VN_FTP_USER: ${{ secrets.UNITZ_VN_FTP_USER}}
+          UNITZ_VN_FTP_PASS: ${{ secrets.UNITZ_VN_FTP_PASS}}
+        run: |
+          curl https://rclone.org/install.sh | bash
+          yarn unitzvn:deploy
+      - uses: iRoachie/slack-github-actions@v2.3.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          status: ${{ job.status }}
+        if: ${{ always() }}
