@@ -92,7 +92,6 @@ jobs:
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit != 'true'
         env:
-          NODE_TLS_REJECT_UNAUTHORIZED: 0
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID}}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
           CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
@@ -151,7 +150,7 @@ jobs:
           UNITZ_VN_FTP_USER: ${{ secrets.UNITZ_VN_FTP_USER}}
           UNITZ_VN_FTP_PASS: ${{ secrets.UNITZ_VN_FTP_PASS}}
         run: |
-          curl https://rclone.org/install.sh | bash
+          curl https://rclone.org/install.sh | sudo bash
           rclone config create remote ftp host=$UNITZ_VN_FTP_HOST pass=$UNITZ_VN_FTP_PASS user=$UNITZ_VN_FTP_USER
           yarn remote:deploy
       - uses: iRoachie/slack-github-actions@v2.3.0

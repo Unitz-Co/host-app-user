@@ -92,7 +92,6 @@ jobs:
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit != 'true'
         env:
-          NODE_TLS_REJECT_UNAUTHORIZED: 0
           CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID}}
           CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
           CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}

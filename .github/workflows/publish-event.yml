@@ -149,7 +149,7 @@ jobs:
           UNITZ_VN_FTP_USER: ${{ secrets.UNITZ_VN_FTP_USER}}
           UNITZ_VN_FTP_PASS: ${{ secrets.UNITZ_VN_FTP_PASS}}
         run: |
-          curl https://rclone.org/install.sh | bash
+          curl https://rclone.org/install.sh | sudo bash
           rclone config create remote ftp host=$UNITZ_VN_FTP_HOST pass=$UNITZ_VN_FTP_PASS user=$UNITZ_VN_FTP_USER
           yarn remote:deploy
       - uses: iRoachie/slack-github-actions@v2.3.0
