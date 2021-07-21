@@ -10,6 +10,12 @@ jobs:
     env:
       working-directory: ./ws/packages/host-app-user
     steps:
+      - uses: iRoachie/slack-github-actions@v2.3.0
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+        with:
+          status: ${{ job.status }}
+        if: ${{ always() }}
       - name: setup node v12
         uses: actions/setup-node@v2
         with:
@@ -137,13 +143,8 @@ jobs:
           APP_DOMAIN_ORIGIN: ${{ secrets.APP_DOMAIN_ORIGIN}}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
-          source ../../../config/ws-scripts/sm/num.sh
-          echo "BUILD_NUMBER_CUR: $BUILD_NUMBER_CUR"
           yarn build:inc
           yarn firebase:deploy
-          cd ../..
-          ../config/ws-scripts/sm/tag.sh stage/n_${BUILD_NUMBER_CUR}
-          git push origin master --tags --force
       - uses: iRoachie/slack-github-actions@v2.3.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
