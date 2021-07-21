@@ -9,12 +9,6 @@ jobs:
     env:
       working-directory: ./ws/packages/host-app-user
     steps:
-      - uses: iRoachie/slack-github-actions@v2.3.0
-        env:
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
-        with:
-          status: ${{ job.status }}
-        if: ${{ always() }}
       - name: setup node v12
         uses: actions/setup-node@v2
         with:
@@ -144,6 +138,7 @@ jobs:
           yarn build:inc
           yarn firebase:deploy
       - name: yarn unitzvn:deploy
+        working-directory: ${{env.working-directory}}
         env:
           UNITZ_VN_FTP_HOST: ${{ secrets.UNITZ_VN_FTP_HOST}}
           UNITZ_VN_FTP_USER: ${{ secrets.UNITZ_VN_FTP_USER}}
