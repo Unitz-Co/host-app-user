@@ -61,6 +61,7 @@ const pageDataQuery = graphql`
             id
             name
             className
+            slug
             sys {
               type
               contentType {
@@ -75,6 +76,7 @@ const pageDataQuery = graphql`
           ... on ContentfulItem {
             id
             name
+            shortText
             sys {
               type
               contentType {
