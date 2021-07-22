@@ -101,8 +101,8 @@ jobs:
           FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID}}
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID}}
           FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID}}
-          AUTH_DOMAIN_ORIGIN: ${{ secrets.AUTH_DOMAIN_ORIGIN}}
-          APP_DOMAIN_ORIGIN: ${{ secrets.APP_DOMAIN_ORIGIN}}
+          GATSBY_AUTH_ORIGIN: ${{ secrets.GATSBY_AUTH_ORIGIN}}
+          GATSBY_APP_ORIGIN: ${{ secrets.GATSBY_APP_ORIGIN}}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build
@@ -127,8 +127,8 @@ jobs:
           FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID}}
           FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID}}
           FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID}}
-          AUTH_DOMAIN_ORIGIN: ${{ secrets.AUTH_DOMAIN_ORIGIN}}
-          APP_DOMAIN_ORIGIN: ${{ secrets.APP_DOMAIN_ORIGIN}}
+          GATSBY_AUTH_ORIGIN: ${{ secrets.GATSBY_AUTH_ORIGIN}}
+          GATSBY_APP_ORIGIN: ${{ secrets.GATSBY_APP_ORIGIN}}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build:inc
