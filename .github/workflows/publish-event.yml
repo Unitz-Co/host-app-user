@@ -4,7 +4,7 @@ on:
   repository_dispatch:
     types: [publish-event]
 jobs:
-  daily:
+  publish-event:
     runs-on: ubuntu-latest
     env:
       working-directory: ./ws/packages/host-app-user

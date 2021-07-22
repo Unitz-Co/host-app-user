@@ -5,7 +5,7 @@ on:
     branches:
       - "master"
 jobs:
-  daily:
+  incbuild:
     runs-on: ubuntu-latest
     env:
       working-directory: ./ws/packages/host-app-user
