@@ -61,6 +61,7 @@ const pageDataQuery = graphql`
             id
             name
             className
+            shortText
             slug
             sys {
               type
