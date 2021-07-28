@@ -130,9 +130,6 @@ const pageDataQuery = graphql`
           detailText
         }
         className
-        detailText {
-          detailText
-        }
         action
         linkHref
         slug
