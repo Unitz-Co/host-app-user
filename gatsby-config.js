@@ -91,6 +91,19 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-import',
+      options: {
+        libraryName: 'antd',
+        style: false, // or 'css'
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-import',
+      options: {
+        libraryName: 'lodash',
+      },
+    },
+    {
       resolve: 'gatsby-plugin-svgr-svgo',
       options: {
         inlineSvgOptions: [
@@ -106,19 +119,6 @@ module.exports = {
             },
           },
         ],
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-import',
-      options: {
-        libraryName: 'antd',
-        style: false, // or 'css'
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-import',
-      options: {
-        libraryName: 'lodash',
       },
     },
     // {
