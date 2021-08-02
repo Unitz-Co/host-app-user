@@ -24,6 +24,19 @@ const pageDataQuery = graphql`
             }
           }
         }
+        seoTitle
+        seoSocialTitle
+        seoSocialDescription {
+          seoSocialDescription
+        }
+        seoMetaDescription {
+          seoMetaDescription
+        }
+        socialImage {
+          resize {
+            src
+          }
+        }
       }
     }
     allContentfulSection {
