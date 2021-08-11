@@ -24,6 +24,19 @@ const pageDataQuery = graphql`
             }
           }
         }
+        seoTitle
+        seoSocialTitle
+        seoSocialDescription {
+          seoSocialDescription
+        }
+        seoMetaDescription {
+          seoMetaDescription
+        }
+        socialImage {
+          resize {
+            src
+          }
+        }
       }
     }
     allContentfulSection {
@@ -61,6 +74,8 @@ const pageDataQuery = graphql`
             id
             name
             className
+            shortText
+            slug
             sys {
               type
               contentType {
@@ -75,6 +90,7 @@ const pageDataQuery = graphql`
           ... on ContentfulItem {
             id
             name
+            shortText
             sys {
               type
               contentType {
@@ -127,9 +143,6 @@ const pageDataQuery = graphql`
           detailText
         }
         className
-        detailText {
-          detailText
-        }
         action
         linkHref
         slug

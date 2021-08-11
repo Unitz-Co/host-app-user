@@ -3,8 +3,8 @@ import React from 'react';
 import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
-import { Helmet } from 'react-helmet';
 import App from '@uz/unitz-app-web/UserApp';
+import SEO from '@uz/unitz-layout-web/SEO';
 
 import _ from 'lodash';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
@@ -25,7 +25,7 @@ export const component = (props) => {
           {ctx.debug(() => {
             ctx.set('pageContext', pageContext);
           })}
-          <Helmet title={'siteTitle'} />
+          <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="wrapper app-row">
