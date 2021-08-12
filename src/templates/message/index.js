@@ -19,7 +19,7 @@ export const component = (props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="wrapper app-row">
-              <h2 className="section-headline">Welcome To Message Page</h2>
+              <h2 className="section-headline">Message Page</h2>
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}</Layout.POS>
