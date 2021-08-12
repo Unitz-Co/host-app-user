@@ -1,6 +1,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV || 'production'}`,
 });
+const _ = require('lodash');
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,
@@ -61,6 +62,17 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID_APP,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN_APP,
         downloadLocal: true,
+        // contentItemFilter: (item) => {
+        //   const contentType = _.get(item, 'sys.contentType.sys.id');
+        //   if (contentType === 'category') {
+        //     const displayName = _.get(item, 'fields.displayName.en-US');
+        //     const allowedCatNames = ['Tư Vấn Tâm Lý'];
+        //     if (!allowedCatNames.includes(displayName)) {
+        //       return false;
+        //     }
+        //   }
+        //   return true;
+        // },
       },
     },
     {
