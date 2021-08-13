@@ -68,7 +68,7 @@ exports.createPages = async (item, gatsby) => {
         slug: advisorSlug,
         params: {
           ...advisor,
-          service_kind: 'video',
+          service_kind: 'voice',
         },
       });
       return gatsby.actions.createPage({
