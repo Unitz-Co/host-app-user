@@ -63,7 +63,7 @@ module.exports = {
           const contentType = _.get(item, 'sys.contentType.sys.id');
           if (contentType === 'category') {
             const displayName = _.get(item, 'fields.displayName.en-US');
-            const allowedCatNames = ['Tư Vấn Tâm Lý'];
+            const allowedCatNames = ['Kỹ năng sống'];
             if (!allowedCatNames.includes(displayName)) {
               return false;
             }
