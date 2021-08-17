@@ -50,7 +50,6 @@ module.exports = {
         spaceId: process.env.CONTENTFUL_SPACE_ID_WEBSITE,
         // Learn about environment variables: https://gatsby.dev/env-vars
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN_WEBSITE,
-        downloadLocal: true,
       },
     },
     {
@@ -58,7 +57,6 @@ module.exports = {
       options: {
         spaceId: process.env.CONTENTFUL_SPACE_ID_APP,
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN_APP,
-        downloadLocal: true,
         contentItemFilter: (item) => {
           const contentType = _.get(item, 'sys.contentType.sys.id');
           if (contentType === 'category') {
