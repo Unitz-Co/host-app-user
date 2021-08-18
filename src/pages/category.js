@@ -21,8 +21,22 @@ const CategoryIndex = (props) => {
         nodes {
           id: contentful_id
           displayName
+          longText {
+            longText
+          }
+          image {
+            fixed(width: 1600) {
+              width
+              height
+              src
+              srcSet
+            }
+          }
           avatarUrl {
             id
+            fixed{
+              src
+            }
           }
           slug
         }
@@ -38,7 +52,6 @@ const CategoryIndex = (props) => {
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <div className="wrapper app-row">Category listing</div>
             <DIV forceCtx>
               {ctx.debug(() => {
                 ctx.set('categories', categories);
