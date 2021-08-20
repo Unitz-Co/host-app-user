@@ -7,8 +7,7 @@ import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
-
-import UserProfile from '@uz/unitz-pages/UserProfile';
+import ProfileMenuModel from '@uz/unitz-pages/ProfileMenuModel';
 import PageData from '../data/PageDataQuery';
 
 const AdvisorIndex = (props) => {
@@ -21,7 +20,7 @@ const AdvisorIndex = (props) => {
           <Layout.POS name="app-body">
             <div className="min-h-full bg-background1">
               <div className="wrapper app-row">
-                <UserProfile />
+                <ProfileMenuModel />
               </div>
             </div>
           </Layout.POS>
