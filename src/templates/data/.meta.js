@@ -10,7 +10,7 @@ exports.createPages = async (item, gatsby) => {
   // @update query
   const allNodes = await gatsby.graphql(`
   query DataQuery {
-    allContentfulPage {
+    allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name
@@ -32,7 +32,7 @@ exports.createPages = async (item, gatsby) => {
         }
       }
     }
-    allContentfulSection {
+    allContentfulSection(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name
@@ -100,7 +100,7 @@ exports.createPages = async (item, gatsby) => {
         }
       }
     }
-    allContentfulItem {
+    allContentfulItem(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name

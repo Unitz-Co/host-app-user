@@ -6,7 +6,7 @@ exports.createPages = async (item, gatsby) => {
   // @update query
   const allNodes = await gatsby.graphql(`
   query pagesQuery {
-    allContentfulPage {
+    allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id: contentful_id
         name

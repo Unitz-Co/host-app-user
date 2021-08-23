@@ -2,7 +2,7 @@ import { graphql, useStaticQuery } from 'gatsby';
 
 const pageDataQuery = graphql`
   query GbCtfProviderQuery {
-    allContentfulPage {
+    allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name
@@ -39,7 +39,7 @@ const pageDataQuery = graphql`
         }
       }
     }
-    allContentfulSection {
+    allContentfulSection(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name
@@ -128,7 +128,7 @@ const pageDataQuery = graphql`
         }
       }
     }
-    allContentfulItem {
+    allContentfulItem(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name
@@ -186,7 +186,7 @@ const pageDataQuery = graphql`
         }
       }
     }
-    allContentfulCategory {
+    allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id: contentful_id
         displayName

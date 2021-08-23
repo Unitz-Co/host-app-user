@@ -17,7 +17,7 @@ import PageData from '../data/PageDataQuery';
 const CategoryIndex = (props) => {
   const allContentfulCategory = useStaticQuery(graphql`
     query CategoryIndexQuery {
-      allContentfulCategory {
+      allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
         nodes {
           id: contentful_id
           displayName
@@ -34,7 +34,7 @@ const CategoryIndex = (props) => {
           }
           avatarUrl {
             id
-            fixed{
+            fixed {
               src
             }
           }

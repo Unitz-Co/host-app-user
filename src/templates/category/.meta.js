@@ -6,7 +6,7 @@ exports.createPages = async (item, gatsby) => {
   // @update query
   const allNodes = await gatsby.graphql(`
   query categoriesQuery {
-    allContentfulCategory {
+    allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id: contentful_id
         displayName
@@ -36,6 +36,7 @@ exports.createPages = async (item, gatsby) => {
 
   const categories = _.get(allNodes, 'data.allContentfulCategory.nodes', []);
 
+  console.log('categoriescategoriescategories', categories);
   return Promise.all(
     categories.map((cat) => {
       const catSlug = routeStore.toUrl('category', cat);
