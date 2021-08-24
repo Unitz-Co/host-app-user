@@ -1,6 +1,7 @@
 const path = require('path');
 const _ = require('lodash');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
+const { withLocale } = require('@uz/mod-translations/utils');
 
 require('@vl/mod-config/web');
 
@@ -31,7 +32,8 @@ const getAllAdvisors = async () => {
   return [];
 };
 
-exports.createPages = async (item, gatsby) => {
+exports.createPages = withLocale(async function(item, gatsby) {
+  const localeConfig = this;
   // @update query
   const allNodes = await gatsby.graphql(`
   query advisorQuery {
@@ -60,7 +62,7 @@ exports.createPages = async (item, gatsby) => {
       };
 
       const advisorSlug = routeStore.toUrl(RULE_NAME, advisor);
-      const advisorPath = path.join('/', advisorSlug);
+      const advisorPath = localeConfig.langSlug(path.join('/', advisorSlug));
 
       console.log('creating page', advisorPath);
       const pageContext = _.cloneDeep({
@@ -78,4 +80,4 @@ exports.createPages = async (item, gatsby) => {
       });
     })
   );
-};
+});

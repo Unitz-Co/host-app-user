@@ -1,230 +1,24 @@
-import { graphql, useStaticQuery } from 'gatsby';
+import React from 'react';
+import _ from 'lodash';
+import useRoute from '@vl/hooks/useGbRoute';
 
-const pageDataQuery = graphql`
-  query GbCtfProviderQuery {
-    allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
-      nodes {
-        id
-        name
-        slug
-        sections {
-          ... on ContentfulSection {
-            id
-            name
-            className
-            sys {
-              type
-              contentType {
-                sys {
-                  type
-                  linkType
-                  id
-                }
-              }
-            }
-          }
-        }
-        seoTitle
-        seoSocialTitle
-        seoSocialDescription {
-          seoSocialDescription
-        }
-        seoMetaDescription {
-          seoMetaDescription
-        }
-        socialImage {
-          resize {
-            src
-          }
-        }
-      }
-    }
-    allContentfulSection(filter: { node_locale: { eq: "en-US" } }) {
-      nodes {
-        id
-        name
-        shortText
-        longText {
-          longText
-        }
-        detailText {
-          detailText
-        }
-        richText {
-          raw
-        }
-        images {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-        image {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-        sections {
-          ... on ContentfulSection {
-            id
-            name
-            className
-            shortText
-            slug
-            sys {
-              type
-              contentType {
-                sys {
-                  type
-                  linkType
-                  id
-                }
-              }
-            }
-          }
-          ... on ContentfulItem {
-            id
-            name
-            shortText
-            sys {
-              type
-              contentType {
-                sys {
-                  type
-                  linkType
-                  id
-                }
-              }
-            }
-            component {
-              id
-              name
-            }
-          }
-        }
-        layout {
-          id
-          name
-        }
-        enhancers {
-          id
-          name
-        }
-        contentful_id
-        sys {
-          type
-          contentType {
-            sys {
-              type
-              linkType
-              id
-            }
-          }
-        }
-      }
-    }
-    allContentfulItem(filter: { node_locale: { eq: "en-US" } }) {
-      nodes {
-        id
-        name
-        shortText
-        richText {
-          raw
-        }
-        longText {
-          longText
-        }
-        detailText {
-          detailText
-        }
-        className
-        action
-        linkHref
-        slug
-        images {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-        image {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-        component {
-          id
-          name
-        }
-        enhancers {
-          id
-          name
-        }
-        contentful_id
-        sys {
-          type
-          contentType {
-            sys {
-              type
-              linkType
-              id
-            }
-          }
-        }
-        longText {
-          longText
-        }
-      }
-    }
-    allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
-      nodes {
-        id: contentful_id
-        displayName
-        avatarUrl {
-          id
-          fixed {
-            src
-          }
-        }
-        icon
-        longText {
-          longText
-        }
-        slug
-        images {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-        image {
-          fixed(width: 1600) {
-            width
-            height
-            src
-            srcSet
-          }
-        }
-      }
-    }
-  }
-`;
+import PageData_vi from './locales/vi';
+import PageData_en from './locales/en';
+
+const locales = {
+  vi: PageData_vi,
+  en: PageData_en,
+};
 
 export const PageData = ({ children }) => {
-  const res = useStaticQuery(pageDataQuery);
-  return children(res);
+  const pageContext = useRoute().getPageContext();
+  const lang = _.get(pageContext, 'lang', 'en');
+  const Component = _.get(locales, lang);
+  if (lang) {
+    // eslint-disable-next-line
+    return <Component children={children} />;
+  }
+  return null;
 };
 
 export default PageData;

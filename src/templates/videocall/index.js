@@ -7,18 +7,12 @@ import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 import ServiceSession from '@uz/unitz-pages/ServiceSession';
 
-import _ from 'lodash';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
-import useRoute from '@vl/hooks/useGbRoute';
+import withPageContext from '@uz/unitz-pages/withPageContext';
 
 import PageData from '../../data/PageDataQuery';
 
-export const component = (props) => {
-  const pageContext = _.get(props, 'pageContext');
-  // eslint-disable-next-line
-  const route = useRoute();
-  route.setPageContext(pageContext);
-
+export const component = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -37,6 +31,6 @@ export const component = (props) => {
       </Layout>
     </App>
   );
-};
+});
 
 export default component;

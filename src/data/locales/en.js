@@ -1,25 +1,17 @@
-const path = require('path');
-const _ = require('lodash');
-// const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
-const { withLocale } = require('@uz/mod-translations/utils');
+import { graphql, useStaticQuery } from 'gatsby';
 
-require('@vl/mod-config/web');
-
-// const hasuraClient = require('@vl/mod-clients/hasuraCtf');
-
-exports.createPages = withLocale(async function(item, gatsby) {
-  const localeConfig = this;
-  // @update query
-  const allNodes = await gatsby.graphql(`
-  query DataQuery {
-    allContentfulPage(filter: { node_locale: { eq: "${localeConfig.get('locale')}" } }) {
+const GbCtfProviderQuery_en = graphql`
+  query GbCtfProviderQuery_en {
+    allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
         name
+        slug
         sections {
           ... on ContentfulSection {
             id
             name
+            className
             sys {
               type
               contentType {
@@ -32,6 +24,19 @@ exports.createPages = withLocale(async function(item, gatsby) {
             }
           }
         }
+        seoTitle
+        seoSocialTitle
+        seoSocialDescription {
+          seoSocialDescription
+        }
+        seoMetaDescription {
+          seoMetaDescription
+        }
+        socialImage {
+          resize {
+            src
+          }
+        }
       }
     }
     allContentfulSection(filter: { node_locale: { eq: "en-US" } }) {
@@ -41,6 +46,12 @@ exports.createPages = withLocale(async function(item, gatsby) {
         shortText
         longText {
           longText
+        }
+        detailText {
+          detailText
+        }
+        richText {
+          raw
         }
         images {
           fixed(width: 1600) {
@@ -62,6 +73,9 @@ exports.createPages = withLocale(async function(item, gatsby) {
           ... on ContentfulSection {
             id
             name
+            className
+            shortText
+            slug
             sys {
               type
               contentType {
@@ -76,6 +90,7 @@ exports.createPages = withLocale(async function(item, gatsby) {
           ... on ContentfulItem {
             id
             name
+            shortText
             sys {
               type
               contentType {
@@ -100,6 +115,17 @@ exports.createPages = withLocale(async function(item, gatsby) {
           id
           name
         }
+        contentful_id
+        sys {
+          type
+          contentType {
+            sys {
+              type
+              linkType
+              id
+            }
+          }
+        }
       }
     }
     allContentfulItem(filter: { node_locale: { eq: "en-US" } }) {
@@ -107,14 +133,19 @@ exports.createPages = withLocale(async function(item, gatsby) {
         id
         name
         shortText
+        richText {
+          raw
+        }
         longText {
           longText
         }
         detailText {
           detailText
         }
+        className
         action
         linkHref
+        slug
         images {
           fixed(width: 1600) {
             width
@@ -139,19 +170,62 @@ exports.createPages = withLocale(async function(item, gatsby) {
           id
           name
         }
+        contentful_id
+        sys {
+          type
+          contentType {
+            sys {
+              type
+              linkType
+              id
+            }
+          }
+        }
+        longText {
+          longText
+        }
       }
     }
-  }`);
+    allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id: contentful_id
+        displayName
+        avatarUrl {
+          id
+          fixed {
+            src
+          }
+        }
+        icon
+        longText {
+          longText
+        }
+        slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+      }
+    }
+  }
+`;
 
-  const data = _.get(allNodes, 'data', {});
-  const slug = localeConfig.langSlug('/data');
-  const pageContext = _.cloneDeep({
-    data,
-  });
+export const PageData = ({ children }) => {
+  const res = useStaticQuery(GbCtfProviderQuery_en);
 
-  return gatsby.actions.createPage({
-    path: slug,
-    component: item.resolvers.component(gatsby),
-    context: pageContext,
-  });
-});
+  return children ? children(res) : null;
+};
+
+export default PageData;

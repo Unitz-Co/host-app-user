@@ -4,6 +4,8 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import AdvisorRegisterPage from '@uz/unitz-pages/AdvisorRegisterPage';
+import withPageContext from '@uz/unitz-pages/withPageContext';
+
 import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
@@ -11,7 +13,7 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 
 import PageData from '../data/PageDataQuery';
 
-const AdvisorRegisterIndex = (props) => {
+const AdvisorRegisterIndex = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -26,6 +28,6 @@ const AdvisorRegisterIndex = (props) => {
       </Layout>
     </App>
   );
-};
+});
 
 export default AdvisorRegisterIndex;

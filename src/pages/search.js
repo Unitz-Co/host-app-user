@@ -9,9 +9,11 @@ import SEO from '@uz/unitz-layout-web/SEO';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
 import SearchPage from '@uz/unitz-pages/SearchPage';
+import withPageContext from '@uz/unitz-pages/withPageContext';
+
 import PageData from '../data/PageDataQuery';
 
-const SearchIndex = (props) => {
+const SearchIndex = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -26,6 +28,6 @@ const SearchIndex = (props) => {
       </Layout>
     </App>
   );
-};
+});
 
 export default SearchIndex;

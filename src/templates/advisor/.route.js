@@ -17,7 +17,7 @@ routeStore.addRule('advisor', {
     // from advisorId
     const advisorId = _.get(params, 'id') || _.get(params, 'advisor_id');
     if (advisorId) {
-      return `/advisor?id=${advisorId}`;
+      return `/advisor/${advisorId}`;
     }
     return `/advisor`;
   },

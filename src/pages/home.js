@@ -4,6 +4,7 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import HomePage from '@uz/unitz-pages/Home';
+import withPageContext from '@uz/unitz-pages/withPageContext';
 import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
@@ -11,7 +12,7 @@ import SEO from '@uz/unitz-layout-web/SEO';
 
 import PageData from '../data/PageDataQuery';
 
-const HomeIndex = (props) => {
+const HomeIndex = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -26,6 +27,6 @@ const HomeIndex = (props) => {
       </Layout>
     </App>
   );
-};
+});
 
 export default HomeIndex;

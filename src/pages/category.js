@@ -9,12 +9,13 @@ import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 import CategoryListPage from '@uz/unitz-pages/CategoryList';
+import withPageContext from '@uz/unitz-pages/withPageContext';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
 import PageData from '../data/PageDataQuery';
 
-const CategoryIndex = (props) => {
+const CategoryIndex = withPageContext((props) => {
   const allContentfulCategory = useStaticQuery(graphql`
     query CategoryIndexQuery {
       allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
@@ -64,6 +65,6 @@ const CategoryIndex = (props) => {
       </Layout>
     </App>
   );
-};
+});
 
 export default CategoryIndex;

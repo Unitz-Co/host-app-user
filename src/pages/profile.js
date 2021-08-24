@@ -8,9 +8,11 @@ import SEO from '@uz/unitz-layout-web/SEO';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import ProfileMenuModel from '@uz/unitz-pages/ProfileMenuModel';
+import withPageContext from '@uz/unitz-pages/withPageContext';
+
 import PageData from '../data/PageDataQuery';
 
-const AdvisorIndex = (props) => {
+const AdvisorIndex = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -29,6 +31,6 @@ const AdvisorIndex = (props) => {
       </Layout>
     </App>
   );
-};
+});
 
 export default AdvisorIndex;
