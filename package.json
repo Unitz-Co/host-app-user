@@ -104,6 +104,7 @@
     "unitzvn:sync": "rsync -a public/ ../../../unitz-vn-app && cd ../../../unitz-vn-app && git add . && git commit -m deploy && git push origin master",
     "heroku-postbuild": "gatsby build",
     "serve": "gatsby serve",
+    "serve:fib": "firebase emulators:start",
     "clean": "gatsby clean",
     "start:tunnel": "ngrok http 8000",
     "lint": "eslint ./",

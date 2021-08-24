@@ -3,6 +3,9 @@
     "site": "unitz-web",
     "public": "public",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "i18n": {
+      "root": "/"
+    },
     "headers": [
       {
         "source": "**/*",
@@ -50,5 +53,10 @@
         ]
       }
     ]
+  },
+  "emulators": {
+    "hosting": {
+      "port": "9000"
+    }
   }
 }
