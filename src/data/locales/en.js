@@ -217,6 +217,11 @@ const GbCtfProviderQuery_en = graphql`
             srcSet
           }
         }
+        children: chidlren {
+          ... on ContentfulCategory {
+            id: contentful_id
+          }
+        }
       }
     }
   }
