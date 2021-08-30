@@ -141,6 +141,44 @@ exports.createPages = withLocale(async function(item, gatsby) {
         }
       }
     }
+    allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id: contentful_id
+        displayName
+        avatarUrl {
+          id
+          fixed {
+            src
+          }
+        }
+        icon
+        longText {
+          longText
+        }
+        slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        children: chidlren {
+          ... on ContentfulCategory {
+            id: contentful_id
+          }
+        }
+      }
+    }
   }`);
 
   const data = _.get(allNodes, 'data', {});
