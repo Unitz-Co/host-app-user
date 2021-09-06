@@ -9,21 +9,42 @@ import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 import CategoryListPage from '@uz/unitz-pages/CategoryList';
-import withPageContext from '@uz/unitz-pages/withPageContext';
+import withPageContext, { provideData } from '@uz/unitz-pages/withPageContext';
+import useRoute from '@vl/hooks/useGbRoute';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 
 import PageData from '../data/PageDataQuery';
 
 const CategoryIndex = withPageContext((props) => {
+  const route = useRoute();
+  const pageContext = route.getPageContext();
+
   const allContentfulCategory = useStaticQuery(graphql`
     query CategoryIndexQuery {
-      allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
+      allContentfulCategory {
         nodes {
+          node_locale
           id: contentful_id
           displayName
+          avatarUrl {
+            id
+            fixed {
+              src
+            }
+          }
+          icon
           longText {
             longText
+          }
+          slug
+          images {
+            fixed(width: 1600) {
+              width
+              height
+              src
+              srcSet
+            }
           }
           image {
             fixed(width: 1600) {
@@ -33,18 +54,17 @@ const CategoryIndex = withPageContext((props) => {
               srcSet
             }
           }
-          avatarUrl {
-            id
-            fixed {
-              src
+          children: chidlren {
+            ... on ContentfulCategory {
+              id: contentful_id
             }
           }
-          slug
         }
       }
     }
   `);
   const categories = _.get(allContentfulCategory, 'allContentfulCategory.nodes', []);
+  provideData('categories', _.filter(categories, { node_locale: pageContext.locale }));
 
   return (
     <App>
