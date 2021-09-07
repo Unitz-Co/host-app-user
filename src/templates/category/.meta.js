@@ -14,6 +14,13 @@ exports.createPages = withLocale(async function(item, gatsby) {
         displayName
         avatarUrl {
           id
+          fixed {
+            src
+          }
+        }
+        icon
+        longText {
+          longText
         }
         slug
         images {
@@ -30,6 +37,11 @@ exports.createPages = withLocale(async function(item, gatsby) {
             height
             src
             srcSet
+          }
+        }
+        children: chidlren {
+          ... on ContentfulCategory {
+            id: contentful_id
           }
         }
       }
