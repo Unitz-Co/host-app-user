@@ -5,7 +5,6 @@ const { withLocale } = require('@uz/mod-translations/utils');
 
 exports.createPages = withLocale(async function(item, gatsby) {
   const localeConfig = this;
-  console.log(localeConfig);
   // @update query
   const allNodes = await gatsby.graphql(`
   query pagesQuery {
