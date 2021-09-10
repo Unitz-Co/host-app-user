@@ -5,6 +5,7 @@ const { withLocale } = require('@uz/mod-translations/utils');
 
 exports.createPages = withLocale(async function(item, gatsby) {
   const localeConfig = this;
+  console.log(localeConfig);
   // @update query
   const allNodes = await gatsby.graphql(`
   query pagesQuery {
@@ -25,8 +26,8 @@ exports.createPages = withLocale(async function(item, gatsby) {
 
   return Promise.all(
     pages.map((page) => {
-      const pageSlug = localeConfig.langSlug(routeStore.toUrl('page', page));
-      const pagePath = path.join('/', pageSlug);
+      const pageSlug = routeStore.toUrl('page', page);
+      const pagePath = localeConfig.langSlug(path.join('/', pageSlug));
       const pageLayout = _.get(page, 'layout.name', 'ContentPageLayout');
 
       console.log('creating page', pagePath);
@@ -34,7 +35,7 @@ exports.createPages = withLocale(async function(item, gatsby) {
         path: pagePath,
         component: item.resolvers.component(gatsby),
         context: {
-          id: _.get(page, 'id'),
+          id: _.get(page, 'id', 'id'),
           slug: pageSlug,
           lang: localeConfig.get('lang'),
           params: {
