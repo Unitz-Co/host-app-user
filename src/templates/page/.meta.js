@@ -30,18 +30,19 @@ exports.createPages = withLocale(async function(item, gatsby) {
       const pageLayout = _.get(page, 'layout.name', 'ContentPageLayout');
 
       console.log('creating page', pagePath);
+      const pageContext = _.cloneDeep({
+        id: _.get(page, 'id', 'id'),
+        slug: pageSlug,
+        lang: localeConfig.get('lang'),
+        params: {
+          ...page,
+          pageLayout,
+        },
+      });
       return gatsby.actions.createPage({
         path: pagePath,
         component: item.resolvers.component(gatsby),
-        context: {
-          id: _.get(page, 'id', 'id'),
-          slug: pageSlug,
-          lang: localeConfig.get('lang'),
-          params: {
-            ...page,
-            pageLayout,
-          },
-        },
+        context: pageContext,
       });
     })
   );

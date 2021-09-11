@@ -55,16 +55,18 @@ exports.createPages = withLocale(async function(item, gatsby) {
       const catSlug = routeStore.toUrl('category', cat);
       const catPath = localeConfig.langSlug(path.join('/', catSlug));
       console.log('creating page', catPath);
+      const pageContext = _.cloneDeep({
+        id: _.get(cat, 'id', 'id'),
+        slug: catSlug,
+        lang: localeConfig.get('lang'),
+        params: {
+          ...cat,
+        },
+      });
       return gatsby.actions.createPage({
         path: catPath,
         component: item.resolvers.component(gatsby),
-        context: {
-          id: _.get(cat, 'id', 'id'),
-          slug: catSlug,
-          params: {
-            ...cat,
-          },
-        },
+        context: pageContext,
       });
     })
   );
