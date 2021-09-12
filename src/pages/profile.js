@@ -21,12 +21,14 @@ const AdvisorIndex = withPageContext((props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="min-h-full bg-background1">
-              <div className="wrapper app-row">
-                <ProfileMenuModel />
-              </div>
+              <ProfileMenuModel />
             </div>
           </Layout.POS>
-          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}</Layout.POS>
+          <Layout.POS name="app-footer">
+            <div className="hidden min-lg:block">
+              {ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}
+            </div>
+          </Layout.POS>
         </DIV>
       </Layout>
     </App>
