@@ -102,6 +102,142 @@ exports.createPages = withLocale(async function(item, gatsby) {
         }
       }
     }
+    allContentfulSection_en_US: allContentfulSection(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id
+        name
+        shortText
+        longText {
+          longText
+        }
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        sections {
+          ... on ContentfulSection {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+          }
+          ... on ContentfulItem {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+            component {
+              id
+              name
+            }
+          }
+        }
+        layout {
+          id
+          name
+        }
+        enhancers {
+          id
+          name
+        }
+      }
+    }
+    allContentfulSection_vi_VN: allContentfulSection(filter: { node_locale: { eq: "vi-VN" } }) {
+      nodes {
+        id
+        name
+        shortText
+        longText {
+          longText
+        }
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        sections {
+          ... on ContentfulSection {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+          }
+          ... on ContentfulItem {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+            component {
+              id
+              name
+            }
+          }
+        }
+        layout {
+          id
+          name
+        }
+        enhancers {
+          id
+          name
+        }
+      }
+    }
     allContentfulItem(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
@@ -141,7 +277,161 @@ exports.createPages = withLocale(async function(item, gatsby) {
         }
       }
     }
+    allContentfulItem_en_US: allContentfulItem(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id
+        name
+        shortText
+        longText {
+          longText
+        }
+        detailText {
+          detailText
+        }
+        action
+        linkHref
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        component {
+          id
+          name
+        }
+        enhancers {
+          id
+          name
+        }
+      }
+    }
+    allContentfulItem_vi_VN: allContentfulItem(filter: { node_locale: { eq: "vi-VN" } }) {
+      nodes {
+        id
+        name
+        shortText
+        longText {
+          longText
+        }
+        detailText {
+          detailText
+        }
+        action
+        linkHref
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        component {
+          id
+          name
+        }
+        enhancers {
+          id
+          name
+        }
+      }
+    }
     allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id: contentful_id
+        displayName
+        avatarUrl {
+          id
+          fixed {
+            src
+          }
+        }
+        icon
+        longText {
+          longText
+        }
+        slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        children: chidlren {
+          ... on ContentfulCategory {
+            id: contentful_id
+          }
+        }
+      }
+    }
+    allContentfulCategory_en_US: allContentfulCategory(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id: contentful_id
+        displayName
+        avatarUrl {
+          id
+          fixed {
+            src
+          }
+        }
+        icon
+        longText {
+          longText
+        }
+        slug
+        images {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        image {
+          fixed(width: 1600) {
+            width
+            height
+            src
+            srcSet
+          }
+        }
+        children: chidlren {
+          ... on ContentfulCategory {
+            id: contentful_id
+          }
+        }
+      }
+    }
+    allContentfulCategory_vi_VN: allContentfulCategory(filter: { node_locale: { eq: "vi-VN" } }) {
       nodes {
         id: contentful_id
         displayName
