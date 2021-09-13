@@ -34,6 +34,50 @@ exports.createPages = withLocale(async function(item, gatsby) {
         }
       }
     }
+    allContentfulPage_vi_VN: allContentfulPage(filter: { node_locale: { eq: "vi-VN" } }) {
+      nodes {
+        id
+        name
+        sections {
+          ... on ContentfulSection {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    allContentfulPage_en_US: allContentfulPage(filter: { node_locale: { eq: "en-US" } }) {
+      nodes {
+        id
+        name
+        sections {
+          ... on ContentfulSection {
+            id
+            name
+            sys {
+              type
+              contentType {
+                sys {
+                  type
+                  linkType
+                  id
+                }
+              }
+            }
+          }
+        }
+      }
+    }
     allContentfulSection(filter: { node_locale: { eq: "en-US" } }) {
       nodes {
         id
