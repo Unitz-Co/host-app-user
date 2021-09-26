@@ -64,6 +64,8 @@
     "react-svg": "^14.0.2",
     "react-sweet-progress": "^1.1.2",
     "react-tabs": "^3.1.0",
+    "react-quill": "^2.0.0-beta.4",
+    "quill-emoji": "^0.2.0",
     "rxjs": "^6.6.6",
     "slick-carousel": "^1.8.1",
     "slugify": "^1.5.3",
