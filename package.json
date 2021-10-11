@@ -54,6 +54,7 @@
     "querystring": "^0.2.1",
     "react": "^16.13.1",
     "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-big-calendar": "^0.35.0",
     "react-cool-dimensions": "^2.0.1",
     "react-countup": "^4.3.3",
     "react-dom": "^16.13.1",
