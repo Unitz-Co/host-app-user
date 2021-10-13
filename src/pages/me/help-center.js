@@ -21,7 +21,7 @@ const UserBankListIdx = withPageContext((props) => {
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <div className="min-h-full bg-background1">User profile menu - My courses page</div>
+            <h1 className="min-h-full bg-background1">User profile menu - Help center page</h1>
           </Layout.POS>
           <Layout.POS name="app-footer">
             <div className="hidden min-lg:block">
