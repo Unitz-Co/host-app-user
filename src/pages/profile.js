@@ -6,9 +6,9 @@ import DIV from '@vl/redata/DIV.macro';
 import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
-import Layout from '@uz/unitz-layout-web/LayoutMain';
-import ProfileMenuModel from '@uz/unitz-pages/ProfileMenuModel';
+import Layout from '@uz/unitz-layout-web/LayoutUserProfile';
 import withPageContext from '@uz/unitz-pages/withPageContext';
+import UserProfile from '@uz/unitz-pages/UserProfile';
 
 import PageData from '../data/PageDataQuery';
 
@@ -21,7 +21,7 @@ const AdvisorIndex = withPageContext((props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="min-h-full bg-background1">
-              <ProfileMenuModel />
+              <UserProfile />
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">

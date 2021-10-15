@@ -7,13 +7,13 @@ import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 // import Layout from '@uz/unitz-layout-web/LayoutMain';
-import Layout from '@uz/unitz-layout-web/LayoutUserProfile';
+import Layout from '@uz/unitz-layout-web/LayoutUserProfileFullPage';
 import withPageContext from '@uz/unitz-pages/withPageContext';
-import UserCourseList from '@uz/unitz-pages/UserCourseList';
+import Calendar from '@uz/unitz-pages/Calendar';
 
 import PageData from '../../data/PageDataQuery';
 
-const UserBankListIdx = withPageContext((props) => {
+const UserCalendarIdx = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -21,7 +21,7 @@ const UserBankListIdx = withPageContext((props) => {
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <UserCourseList />
+            <Calendar />
           </Layout.POS>
           <Layout.POS name="app-footer">
             <div className="hidden min-lg:block">
@@ -34,4 +34,4 @@ const UserBankListIdx = withPageContext((props) => {
   );
 });
 
-export default UserBankListIdx;
+export default UserCalendarIdx;
