@@ -1,5 +1,17 @@
 {
   "projects": {
     "default": "unitz-app"
+  },
+  "targets": {
+    "unitz-app": {
+      "hosting": {
+        "unitz-web": [
+          "unitz-web"
+        ],
+        "dev-unitz-web": [
+          "dev-unitz-web"
+        ]
+      }
+    }
   }
 }
