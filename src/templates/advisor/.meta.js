@@ -10,7 +10,7 @@ const hasuraClient = require('@vl/mod-clients/hasuraCtf');
 const getAllAdvisors = async () => {
   const query = hasuraClient.gql`
     query advisor {
-      advisor {
+      advisor (where: {profile: {is_active: {_eq: true}, is_published: {_eq: true}}}) {
         id
         profile {
           id

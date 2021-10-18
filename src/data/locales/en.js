@@ -44,6 +44,7 @@ const GbCtfProviderQuery_en = graphql`
         id
         name
         shortText
+        className
         longText {
           longText
         }
