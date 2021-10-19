@@ -8,7 +8,7 @@ jobs:
   incbuild:
     runs-on: ubuntu-latest
     env:
-      working-directory: ./ws/packages/host-app-user
+      working-directory: ./ws-app-web/packages/host-app-user
     steps:
       - name: setup node v14
         uses: actions/setup-node@v2
@@ -22,7 +22,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: Unitz-Co/ws-app-web
-          path: ws
+          path: ws-app-web
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: true
       - name: clone env
@@ -30,13 +30,6 @@ jobs:
         with:
           repository: Unitz-Co/envprod-app-web
           path: config/env-app-web
-          token: ${{ secrets.PAT_TOKEN }}
-          persist-credentials: true
-      - name: clone credentials
-        uses: actions/checkout@v2
-        with:
-          repository: Unitz-Co/credentials
-          path: config/credentials
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: true
       - name: clone config
@@ -48,7 +41,7 @@ jobs:
           persist-credentials: true
       - name: checkout submodule
         run: |
-          cd ws
+          cd ws-app-web
           git config --file .gitmodules --get-regexp url | while read url; do
             git config --file=.gitmodules $(echo "$url" | sed -E "s/git@github.com:|https:\/\/github.com\//https:\/\/${{ secrets.PAT_TOKEN }}:${{ secrets.PAT_TOKEN }}@github.com\//")
           done
@@ -67,7 +60,7 @@ jobs:
         with:
           path: |
             ${{env.working-directory}}/node_modules
-            ./ws/node_modules
+            ./ws-app-web/node_modules
           key: ${{ runner.os }}nodemodules-${{ hashFiles('**/yarn.lock', '**/package-lock.json', '**/package.json') }}
       - name: build modules
         working-directory: ${{env.working-directory}}
