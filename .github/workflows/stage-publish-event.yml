@@ -1,11 +1,10 @@
-name: beta
+name: stage publish-event
 
 on:
-  push:
-    branches:
-      - "beta"
+  repository_dispatch:
+    types: [publish-event]
 jobs:
-  beta:
+  publish-event:
     runs-on: ubuntu-latest
     env:
       working-directory: ./ws-app-web/packages/host-app-user
@@ -28,7 +27,7 @@ jobs:
       - name: clone env
         uses: actions/checkout@v2
         with:
-          repository: Unitz-Co/envprod-app-web
+          repository: Unitz-Co/env-app-web
           path: config/env-app-web
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: true
@@ -81,8 +80,13 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
+          source ../../../config/ws-scripts/sm/num.sh
+          echo "BUILD_NUMBER_CUR: $BUILD_NUMBER_CUR"
           yarn build
-          yarn firebase:deploy
+          yarn firebase:deploy:dev
+          cd ../..
+          ../config/ws-scripts/sm/tag.sh stage/n_${BUILD_NUMBER_CUR}
+          git push origin master --tags --force
       - name: yarn build:inc
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit == 'true'
@@ -90,7 +94,7 @@ jobs:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build:inc
-          yarn firebase:deploy
+          yarn firebase:deploy:dev
       - uses: iRoachie/slack-github-actions@v2.3.0
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
