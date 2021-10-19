@@ -1,4 +1,4 @@
-name: incbuild
+name: beta incbuild
 
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
       - name: clone env
         uses: actions/checkout@v2
         with:
-          repository: Unitz-Co/env-app-web
+          repository: Unitz-Co/envprod-app-web
           path: config/env-app-web
           token: ${{ secrets.PAT_TOKEN }}
           persist-credentials: true
@@ -86,23 +86,6 @@ jobs:
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit != 'true'
         env:
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID}}
-          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
-          CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
-          CONTENTFUL_SPACE_ID_WEBSITE: ${{ secrets.CONTENTFUL_SPACE_ID_WEBSITE}}
-          CONTENTFUL_SPACE_ID_APP: ${{ secrets.CONTENTFUL_SPACE_ID_APP}}
-          CONTENTFUL_ACCESS_TOKEN_APP: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_APP}}
-          CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN}}
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY}}
-          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN}}
-          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL}}
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID}}
-          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET}}
-          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID}}
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID}}
-          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID}}
-          GATSBY_AUTH_ORIGIN: ${{ secrets.GATSBY_AUTH_ORIGIN}}
-          GATSBY_APP_ORIGIN: ${{ secrets.GATSBY_APP_ORIGIN}}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build
@@ -111,24 +94,6 @@ jobs:
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit == 'true'
         env:
-          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: 'true'
-          CONTENTFUL_SPACE_ID: ${{ secrets.CONTENTFUL_SPACE_ID}}
-          CONTENTFUL_ACCESS_TOKEN: ${{ secrets.CONTENTFUL_ACCESS_TOKEN}}
-          CONTENTFUL_ACCESS_TOKEN_WEBSITE: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_WEBSITE}}
-          CONTENTFUL_SPACE_ID_WEBSITE: ${{ secrets.CONTENTFUL_SPACE_ID_WEBSITE}}
-          CONTENTFUL_SPACE_ID_APP: ${{ secrets.CONTENTFUL_SPACE_ID_APP}}
-          CONTENTFUL_ACCESS_TOKEN_APP: ${{ secrets.CONTENTFUL_ACCESS_TOKEN_APP}}
-          CONTENTFUL_DELIVERY_TOKEN: ${{ secrets.CONTENTFUL_DELIVERY_TOKEN}}
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY}}
-          FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN}}
-          FIREBASE_DATABASE_URL: ${{ secrets.FIREBASE_DATABASE_URL}}
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID}}
-          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET}}
-          FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.FIREBASE_MESSAGING_SENDER_ID}}
-          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID}}
-          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID}}
-          GATSBY_AUTH_ORIGIN: ${{ secrets.GATSBY_AUTH_ORIGIN}}
-          GATSBY_APP_ORIGIN: ${{ secrets.GATSBY_APP_ORIGIN}}
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
           yarn build:inc
