@@ -5,6 +5,9 @@
   "targets": {
     "unitz-app": {
       "hosting": {
+        "unitz-app": [
+          "unitz-app"
+        ],
         "unitz-web": [
           "unitz-web"
         ],
