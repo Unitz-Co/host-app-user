@@ -9,7 +9,7 @@ import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import SEO from '@uz/unitz-layout-web/SEO';
-import PageData from '../data/PageDataQuery';
+import PageData from '../../data/PageDataQuery';
 
 const HomeEducationIndex = withPageContext((props) => {
   return (

@@ -1,10 +1,13 @@
 const _ = require('lodash');
 const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
+const querystring = require('querystring');
 
 routeStore.addRule('course', {
-  url: () => {
-    return `/course`;
+  url: (params) => {
+    let search = `${querystring.stringify(params)}`;
+    search = search ? `?${search}` : '';
+    return `/course${search}`;
   },
   parse: (urlObject) => {
     const params = {};
@@ -20,8 +23,9 @@ routeStore.addRule('course', {
 
 routeStore.addRule('courseDetail', {
   url: (params) => {
-    const id = _.get(params, 'id', 'unknown');
-    return `/course/detail?id=${id}`;
+    let search = `${querystring.stringify(_.pick(params, ['id']))}`;
+    search = search ? `?${search}` : '';
+    return `/course/detail${search}`;
   },
   parse: (urlObject) => {
     const params = {};
@@ -32,6 +36,24 @@ routeStore.addRule('courseDetail', {
   },
   match: (urlObject) => {
     return urlObject.pathname === 'course/detail';
+  },
+});
+
+routeStore.addRule('coursePurchase', {
+  url: (params) => {
+    let search = `${querystring.stringify(_.pick(params, ['id']))}`;
+    search = search ? `?${search}` : '';
+    return `/course/purchase${search}`;
+  },
+  parse: (urlObject) => {
+    const params = {};
+    for (let param in urlObject.searchParams) {
+      params[param] = urlObject.searchParams.get(param);
+    }
+    return params;
+  },
+  match: (urlObject) => {
+    return urlObject.pathname === 'course/purchase';
   },
 });
 
