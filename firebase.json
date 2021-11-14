@@ -71,6 +71,13 @@
       "i18n": {
         "root": "/"
       },
+      "redirects": [
+        {
+          "source": "/",
+          "destination": "/vi",
+          "type": 301
+        }
+      ],
       "headers": [
         {
           "source": "**",
