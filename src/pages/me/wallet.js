@@ -26,7 +26,7 @@ const UserWalletIdx = withPageContext((props) => {
           </Layout.POS>
           <Layout.POS name="app-footer">
             <div className="hidden min-lg:block">
-              {ctx.apply('ctf.renderSection', { name: 'articleFooterSection' })}
+              {ctx.apply('ctf.renderSection', { name: 'FooterSection' })}
             </div>
           </Layout.POS>
         </DIV>
