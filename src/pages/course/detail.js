@@ -17,8 +17,10 @@ const Index = withPageContext((props) => {
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <div className="wrapper app-row">
-              <CourseDetail />
+            <div className="min-lg:bg-background1">
+              <div className="wrapper app-row">
+                <CourseDetail />
+              </div>
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
