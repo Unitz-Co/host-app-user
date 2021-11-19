@@ -191,6 +191,7 @@ const GbCtfProviderQuery_en = graphql`
       nodes {
         id: contentful_id
         displayName
+        featured
         avatarUrl {
           id
           fixed {
