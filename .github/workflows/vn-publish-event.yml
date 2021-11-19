@@ -85,8 +85,6 @@ jobs:
           yarn build
           yarn unitzvn:deploy
           cd ../..
-          ../config/ws-scripts/sm/tag.sh stage/n_${BUILD_NUMBER_CUR}
-          git push origin master --tags --force
       - name: yarn build:inc
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit == 'true'
