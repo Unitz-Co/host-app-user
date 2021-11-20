@@ -52,32 +52,30 @@ exports.createPages = withLocale(async function(item, gatsby) {
 
   return Promise.all(
     advisors.map((advisorData) => {
-      const profileId = _.get(advisorData, 'profile.ref_ctf_eid');
-      const advisor = {
-        ...advisorData,
-        profile: {
-          ...advisorData.profile,
-          ..._.get(advisorProfilesMapByProfileId, profileId),
-        },
-      };
-
-      const advisorSlug = routeStore.toUrl(RULE_NAME, advisor);
-      const advisorPath = localeConfig.langSlug(path.join('/', advisorSlug));
-
-      console.log('creating page', advisorPath);
-      const pageContext = _.cloneDeep({
-        id: _.get(advisor, 'id', 'id'),
-        slug: advisorSlug,
-        params: {
-          ...advisor,
-          service_kind: 'video',
-        },
-      });
-      return gatsby.actions.createPage({
-        path: advisorPath,
-        component: item.resolvers.component(gatsby),
-        context: pageContext,
-      });
+      // const profileId = _.get(advisorData, 'profile.ref_ctf_eid');
+      // const advisor = {
+      //   ...advisorData,
+      //   profile: {
+      //     ...advisorData.profile,
+      //     ..._.get(advisorProfilesMapByProfileId, profileId),
+      //   },
+      // };
+      // const advisorSlug = routeStore.toUrl(RULE_NAME, advisor);
+      // const advisorPath = localeConfig.langSlug(path.join('/', advisorSlug));
+      // console.log('creating page', advisorPath);
+      // const pageContext = _.cloneDeep({
+      //   id: _.get(advisor, 'id', 'id'),
+      //   slug: advisorSlug,
+      //   params: {
+      //     ...advisor,
+      //     service_kind: 'video',
+      //   },
+      // });
+      // return gatsby.actions.createPage({
+      //   path: advisorPath,
+      //   component: item.resolvers.component(gatsby),
+      //   context: pageContext,
+      // });
     })
   );
 });
