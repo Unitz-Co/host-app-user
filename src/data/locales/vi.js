@@ -192,6 +192,7 @@ const GbCtfProviderQuery_vi = graphql`
         id: contentful_id
         displayName
         featured
+        highlight
         avatarUrl {
           id
           fixed {
