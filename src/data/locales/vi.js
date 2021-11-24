@@ -231,6 +231,7 @@ const GbCtfProviderQuery_vi = graphql`
 `;
 
 export const PageData = ({ children }) => {
+  // eslint-disable-next-line
   const res = useStaticQuery(GbCtfProviderQuery_vi);
 
   return children ? children(res) : null;
