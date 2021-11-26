@@ -3,7 +3,7 @@ import React from 'react';
 import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
-import HomePage from '@uz/unitz-pages/CFHomeLandingPage';
+import HomePage from '@uz/unitz-pages/HomeLifeStyle';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 import App from '@uz/unitz-app-web/UserApp';
 
@@ -17,7 +17,7 @@ const HomeIndex = withPageContext((props) => {
     <App>
       <Layout location={props.location} PageData={PageData}>
         <DIV>
-          <SEO pageData={ctx.apply('ctf.findPage', { name: 'HomePageLanding' })} />
+          <SEO pageData={ctx.apply('ctf.findPage', { name: 'HomePageLifeStyle' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <HomePage />
