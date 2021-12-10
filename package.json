@@ -97,9 +97,8 @@
     "tailwindcss": "^2.1.1"
   },
   "keywords": [
-    "gatsby",
-    "contentful",
-    "starter"
+    "unitz",
+    "unitz-user"
   ],
   "license": "MIT",
   "main": "n/a",
