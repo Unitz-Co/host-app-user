@@ -105,6 +105,7 @@
   "scripts": {
     "config:env": "../../../config/ws-scripts/env/config.sh",
     "update:env": "../../../config/ws-scripts/env/update.sh",
+    "build:trigger": "../../../config/ws-scripts/cicd/trigger.sh",
     "dev": "gatsby develop",
     "build": "gatsby build",
     "build:inc": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
