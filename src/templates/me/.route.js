@@ -17,3 +17,9 @@ routeStore.addRule('userProfileMenu', {
   //   return urlObject.pathname === 'me/${params}';
   // },
 });
+
+routeStore.addRule('call-history-detail', {
+  url: (params) => {
+    return `/me/call-history-detail?id=${_.get(params, 'id')}`;
+  },
+});
