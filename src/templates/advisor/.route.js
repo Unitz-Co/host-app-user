@@ -32,3 +32,9 @@ routeStore.addRule('advisor', {
     return urlObject.pathname === 'advisor';
   },
 });
+
+routeStore.addRule('advisor:user', {
+  url: (params) => {
+    return `${routeStore.getAppOrigin('user')}${_.get(params, 'profile.slug')}`;
+  },
+});
