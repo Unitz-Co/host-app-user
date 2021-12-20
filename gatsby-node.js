@@ -9,11 +9,24 @@ exports.createPages = (gatsby) => {
   return Promise.all([gatsbyLoadTemplate({ gatsby })]);
 };
 // eslint-disable-next-line
-exports.onCreateWebpackConfig = ({ stage, actions, getConfig }) => {
-  actions.setWebpackConfig({});
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
+  if (stage === 'build-html' || stage === 'develop-html') {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /fabric/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  } else {
+    actions.setWebpackConfig({});
+  }
 };
 
-exports.onCreatePage = withLocale(async function ({ page, actions }) {
+exports.onCreatePage = withLocale(async function({ page, actions }) {
   const localeConfig = this;
   const pageSlug = page.path;
   const pagePath = localeConfig.langSlug(path.join('/', pageSlug));
