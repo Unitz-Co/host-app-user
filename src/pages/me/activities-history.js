@@ -8,11 +8,11 @@ import SEO from '@uz/unitz-layout-web/SEO';
 
 import Layout from '@uz/unitz-layout-web/LayoutUserProfile';
 import withPageContext from '@uz/unitz-pages/withPageContext';
-import UserCallHistoryDetail from '@uz/unitz-pages/UserCallHistoryDetail';
+import HomePage from '@uz/unitz-pages/UserActivitiesHistory';
 
 import PageData from '../../data/PageDataQuery';
 
-const UserCallHistoryDetailIdx = withPageContext((props) => {
+const UserActivitiesHistoryIdx = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -21,7 +21,7 @@ const UserCallHistoryDetailIdx = withPageContext((props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="min-h-full bg-background1">
-              <UserCallHistoryDetail />
+              <HomePage />
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">
@@ -33,4 +33,4 @@ const UserCallHistoryDetailIdx = withPageContext((props) => {
   );
 });
 
-export default UserCallHistoryDetailIdx;
+export default UserActivitiesHistoryIdx;

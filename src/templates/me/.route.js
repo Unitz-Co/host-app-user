@@ -18,8 +18,8 @@ routeStore.addRule('userProfileMenu', {
   // },
 });
 
-routeStore.addRule('call-history-detail', {
+routeStore.addRule('activities-history-detail', {
   url: (params) => {
-    return `/me/call-history-detail?id=${_.get(params, 'id')}`;
+    return `/me/activities-history-detail?id=${_.get(params, 'id')}`;
   },
 });
