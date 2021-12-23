@@ -39,6 +39,11 @@ exports.createPages = withLocale(async function(item, gatsby) {
       nodes {
         id: contentful_id
         displayName
+        avatarUrl {
+          fixed {
+            src
+          }
+        }
         email
         slug
       }
