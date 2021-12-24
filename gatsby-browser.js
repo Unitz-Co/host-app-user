@@ -1,4 +1,5 @@
-import './src/styles/global.css';
+// import './src/styles/global.css';
+import './src/styles/global.production.css';
 import '@vl/mod-config/web';
 
 // firebase features
