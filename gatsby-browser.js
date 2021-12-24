@@ -1,7 +1,9 @@
-import './src/styles/global.css';
+// import './src/styles/global.css';
+import './src/styles/global.production.css';
 import '@vl/mod-config/web';
 
 // firebase features
+import 'firebase/analytics';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore';

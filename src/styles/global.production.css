@@ -1,0 +1,10 @@
+/* ./src/styles/global.css */
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import '../../../../modules/gstyles/tailwind/style.css'; */
+
+/* @import 'react-big-calendar/lib/sass/styles'; */
+@import '../../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css';
+@import '../../../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css';
