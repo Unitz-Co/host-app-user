@@ -1,7 +1,7 @@
 import React from 'react';
 
 import withPageContext from '@uz/unitz-pages/withPageContext';
-import App from '@uz/unitz-app-web/AdvisorApp';
+import App from '@uz/unitz-app-web/UserApp';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import PageData from '../../data/PageDataQuery';
 import DIV from '@vl/redata/DIV.macro';
