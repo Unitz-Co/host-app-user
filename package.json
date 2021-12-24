@@ -29,6 +29,7 @@
     "gatsby-plugin-firebase": "^0.2.0-beta.4",
     "gatsby-plugin-import": "^2.1.7",
     "gatsby-plugin-i18n": "^1.0.1",
+    "gatsby-plugin-google-tagmanager": "^4.4.0",
     "gatsby-plugin-manifest": "^2.2.39",
     "gatsby-plugin-offline": "^3.0.32",
     "gatsby-plugin-react-helmet": "^3.3.5",
