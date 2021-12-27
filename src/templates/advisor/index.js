@@ -25,6 +25,7 @@ export const component = withPageContext((props) => {
               seoMetaDescription: {
                 seoMetaDescription: `${_.get(pageContext, 'params.profile.displayName')}`,
               },
+              siteImage: _.get(pageContext, 'params.profile.avatarUrl.fixed.src', ''),
             }}
           />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
