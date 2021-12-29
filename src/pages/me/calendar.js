@@ -24,9 +24,7 @@ const UserCalendarIdx = withPageContext((props) => {
             <Calendar />
           </Layout.POS>
           <Layout.POS name="app-footer">
-            <div className="hidden min-lg:block">
-              {ctx.apply('ctf.renderSection', { name: 'FooterSection' })}
-            </div>
+            <div className="hidden min-lg:block">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</div>
           </Layout.POS>
         </DIV>
       </Layout>
