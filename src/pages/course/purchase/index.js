@@ -34,7 +34,6 @@ export const component = withPageContext((props) => {
   }, [courseId]);
 
   const course = _.get(items, '0');
-  console.log(course);
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
