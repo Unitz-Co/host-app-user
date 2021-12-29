@@ -63,6 +63,7 @@ exports.createPages = withLocale(async function(item, gatsby) {
           id: _.get(cat, 'id', 'id'),
           slug: catSlug,
           lang: localeConfig.get('lang'),
+          allCategories: categories,
           params: {
             ...cat,
           },
