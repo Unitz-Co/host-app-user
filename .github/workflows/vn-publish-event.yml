@@ -80,18 +80,15 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
-          source ../../../config/ws-scripts/sm/num.sh
-          echo "BUILD_NUMBER_CUR: $BUILD_NUMBER_CUR"
-          yarn build
+          TARGET_DOMAIN=unitz.vn yarn build
           yarn unitzvn:deploy
-          cd ../..
       - name: yarn build:inc
         working-directory: ${{env.working-directory}}
         if: steps.gatsbycachebuild.outputs.cache-hit == 'true'
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
-          yarn build:inc
+          TARGET_DOMAIN=unitz.vn yarn build:inc
           yarn unitzvn:deploy
       - uses: iRoachie/slack-github-actions@v2.3.0
         env:
