@@ -9,7 +9,7 @@ const domainConfigs = {
   'unitz.vn': require('./domains/unitz.vn/gatsby-config'),
 };
 
-const targetDomain = _.get(domainConfigs, process.env.TARGET_DOMAIN || 'unitz.app') || {};
+const targetDomain = _.get(domainConfigs, process.env.GATSBY_TARGET_DOMAIN || 'unitz.app') || {};
 
 const contentfulConfig = {
   spaceId: process.env.CONTENTFUL_SPACE_ID,

@@ -36,7 +36,6 @@ export const component = withPageContext((props) => {
 
     return !!(_.findIndex(childs, (item) => item.id === currentId) !== -1);
   })();
-  console.log({ isEducation });
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>

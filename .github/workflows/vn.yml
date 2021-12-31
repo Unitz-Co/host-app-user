@@ -81,7 +81,7 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
-          TARGET_DOMAIN=unitz.vn yarn build
+          GATSBY_TARGET_DOMAIN=unitz.vn yarn build
           yarn unitzvn:deploy
       - name: yarn build:inc
         working-directory: ${{env.working-directory}}
@@ -89,7 +89,7 @@ jobs:
         env:
           FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN}}
         run: |
-          TARGET_DOMAIN=unitz.vn yarn build:inc
+          GATSBY_TARGET_DOMAIN=unitz.vn yarn build:inc
           yarn unitzvn:deploy
       - uses: iRoachie/slack-github-actions@v2.3.0
         env:
