@@ -206,6 +206,16 @@
       "i18n": {
         "root": "/"
       },
+      "rewrites": [
+        {
+          "source": "/courses/*",
+          "function": "seo-course"
+        },
+        {
+          "source": "/page-data/courses/*/page-data.json",
+          "function": "seo-coursePageData"
+        }
+      ],
       "headers": [
         {
           "source": "**",
