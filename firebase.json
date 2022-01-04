@@ -212,7 +212,23 @@
           "function": "seo-course"
         },
         {
+          "source": "/en/courses/*",
+          "function": "seo-course"
+        },
+        {
+          "source": "/vi/courses/*",
+          "function": "seo-course"
+        },
+        {
           "source": "/page-data/courses/*/page-data.json",
+          "function": "seo-coursePageData"
+        },
+        {
+          "source": "/page-data/en/courses/*/page-data.json",
+          "function": "seo-coursePageData"
+        },
+        {
+          "source": "/page-data/vi/courses/*/page-data.json",
           "function": "seo-coursePageData"
         }
       ],
@@ -227,7 +243,43 @@
           ]
         },
         {
+          "source": "/en/courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
           "source": "/page-data/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/courses/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
