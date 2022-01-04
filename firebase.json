@@ -218,6 +218,24 @@
       ],
       "headers": [
         {
+          "source": "/courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
           "source": "**",
           "headers": [
             {

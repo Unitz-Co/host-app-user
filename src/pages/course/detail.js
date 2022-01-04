@@ -36,7 +36,7 @@ const Index = withPageContext((props) => {
   return (
     <>
       <Helmet>
-        <link rel="stylesheet" type="text/css" href="seo.css" />
+        <link rel="stylesheet" type="text/css" href="/seo.css" />
       </Helmet>
       <App>
         <Layout location={props.location} PageData={PageData}>
