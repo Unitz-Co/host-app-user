@@ -50,6 +50,10 @@ exports.createPages = withLocale(async function(item, gatsby) {
   const advisorProfiles = _.get(allNodes, 'data.allContentfulAdvisorProfile.nodes', []);
   const advisorProfilesMapByProfileId = _.keyBy(advisorProfiles, 'id');
 
+  if (process.env.GATSBY_APP_ENV) {
+    return;
+  }
+
   return Promise.all(
     advisors.map((advisorData) => {
       const profileId = _.get(advisorData, 'profile.ref_ctf_eid');

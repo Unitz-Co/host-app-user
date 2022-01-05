@@ -1,27 +1,23 @@
 const _ = require('lodash');
-const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
 const RULE_NAME = 'voicecall';
+const RULE_NAMES = `${RULE_NAME}s`;
 
 routeStore.addRule(RULE_NAME, {
   url: (params) => {
     // from slug from advisor profile
     const slug = _.get(params, 'slug') || _.get(params, 'profile.slug');
-    if (slug) {
-      return `${slug}`.replace('advisor', RULE_NAME);
+    if (process.env.GATSBY_APP_ENV && slug) {
+      return `${slug}`.replace('advisor', RULE_NAMES);
     }
-    // from advisor displayName
-    const displayName = _.get(params, 'displayName') || _.get(params, 'display_name');
-    if (displayName) {
-      return `/${RULE_NAME}?${slugify(displayName)}`;
-    }
+
     // from advisorId
     const advisorId = _.get(params, 'id') || _.get(params, 'advisor_id');
     if (advisorId) {
       return `/${RULE_NAME}/${advisorId}`;
     }
-    return `/${RULE_NAME}`;
+    return `/${RULE_NAMES}/detail?id=${advisorId}`;
   },
   parse: (urlObject) => {
     const params = {};

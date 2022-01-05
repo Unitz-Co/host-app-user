@@ -31,6 +31,54 @@
         {
           "source": "/page-data/vi/courses/*/page-data.json",
           "function": "seo-coursePageData"
+        },
+        {
+          "source": "/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/en/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
         }
       ],
       "headers": [
@@ -81,6 +129,114 @@
         },
         {
           "source": "/page-data/vi/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
@@ -182,6 +338,54 @@
         {
           "source": "/page-data/vi/courses/*/page-data.json",
           "function": "seo-coursePageData"
+        },
+        {
+          "source": "/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/en/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
         }
       ],
       "headers": [
@@ -232,6 +436,114 @@
         },
         {
           "source": "/page-data/vi/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
@@ -326,6 +638,54 @@
         {
           "source": "/page-data/vi/courses/*/page-data.json",
           "function": "seo-coursePageData"
+        },
+        {
+          "source": "/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/en/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
         }
       ],
       "headers": [
@@ -376,6 +736,114 @@
         },
         {
           "source": "/page-data/vi/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
@@ -470,6 +938,54 @@
         {
           "source": "/page-data/vi/courses/*/page-data.json",
           "function": "seo-coursePageData"
+        },
+        {
+          "source": "/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "function": "seo-voicecall"
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "function": "seo-voicecallPageData"
+        },
+        {
+          "source": "/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/en/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "function": "seo-videocall"
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
+          "function": "seo-videocallPageData"
         }
       ],
       "headers": [
@@ -520,6 +1036,114 @@
         },
         {
           "source": "/page-data/vi/courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/voicecalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/voicecalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/videocalls/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/videocalls/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
