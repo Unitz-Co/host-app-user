@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const slugify = require('slugify');
+const querystring = require('querystring');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 
 routeStore.addRule('userProfileMenu', {
