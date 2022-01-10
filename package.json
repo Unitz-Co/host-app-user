@@ -85,7 +85,8 @@
     "subscriptions-transport-ws": "^0.9.18",
     "ws": "^7.4.3",
     "xss": "^1.0.9",
-    "yup": "^0.28.5"
+    "yup": "^0.28.5",
+    "react-share": "v4.4.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
