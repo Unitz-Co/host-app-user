@@ -27,12 +27,6 @@ const CategoryIndex = withPageContext((props) => {
           node_locale
           id: contentful_id
           displayName
-          avatarUrl {
-            id
-            fixed {
-              src
-            }
-          }
           icon
           longText {
             longText
