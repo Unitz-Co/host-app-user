@@ -194,12 +194,6 @@ const GbCtfProviderQuery_en = graphql`
         featured
         highlight
         highlightSlug
-        avatarUrl {
-          id
-          fixed {
-            src
-          }
-        }
         icon
         longText {
           longText
