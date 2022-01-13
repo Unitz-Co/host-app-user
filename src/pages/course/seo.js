@@ -22,7 +22,7 @@ const Index = withPageContext((props) => {
               {ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}
             </Layout.POS>
             <Layout.POS name="app-body">
-              <div className="min-lg:bg-background1">
+              <div className="bg-white500">
                 <div className="wrapper app-row">
                   <CourseDetail />
                 </div>
