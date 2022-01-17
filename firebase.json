@@ -986,6 +986,30 @@
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
           "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/search-courses/*",
+          "function": "seo-searchCourses"
+        },
+        {
+          "source": "/en/search-courses/*",
+          "function": "seo-searchCourses"
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "function": "seo-searchCourses"
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "function": "seo-searchCoursesPageData"
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "function": "seo-searchCoursesPageData"
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
+          "function": "seo-searchCoursesPageData"
         }
       ],
       "headers": [
@@ -1144,6 +1168,60 @@
         },
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
