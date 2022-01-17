@@ -79,6 +79,30 @@
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
           "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/en/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
         }
       ],
       "headers": [
@@ -237,6 +261,60 @@
         },
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
@@ -386,6 +464,30 @@
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
           "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/en/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
         }
       ],
       "headers": [
@@ -544,6 +646,60 @@
         },
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
@@ -686,6 +842,30 @@
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
           "function": "seo-videocallPageData"
+        },
+        {
+          "source": "/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/en/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "function": "seo-searchCourse"
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
+          "function": "seo-searchCoursePageData"
         }
       ],
       "headers": [
@@ -844,6 +1024,60 @@
         },
         {
           "source": "/page-data/vi/videocalls/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/en/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/vi/search-courses/*",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/en/search-courses/*/page-data.json",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "max-age=2628000"
+            }
+          ]
+        },
+        {
+          "source": "/page-data/vi/search-courses/*/page-data.json",
           "headers": [
             {
               "key": "Cache-Control",
