@@ -47,6 +47,23 @@ routeStore.addRule('courseDetail', {
   },
 });
 
+routeStore.addRule('filterCourse', {
+  url: (params) => {
+    const id = _.get(params, 'id', 'unknown');
+    return `/education/course-filter?category=${id}`;
+  },
+  parse: (urlObject) => {
+    const params = {};
+    for (let param in urlObject.searchParams) {
+      params[param] = urlObject.searchParams.get(param);
+    }
+    return params;
+  },
+  match: (urlObject) => {
+    return urlObject.pathname === '/education/course-filter';
+  },
+});
+
 routeStore.addRule('coursePreview', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
