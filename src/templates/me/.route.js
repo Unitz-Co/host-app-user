@@ -25,6 +25,12 @@ routeStore.addRule('activities-history-detail', {
   },
 });
 
+routeStore.addRule('transaction-detail', {
+  url: (params) => {
+    return `/me/transaction-detail?id=${_.get(params, 'id')}`;
+  },
+});
+
 routeStore.addRule('meCourseDetail', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
