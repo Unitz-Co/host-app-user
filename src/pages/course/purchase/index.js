@@ -10,10 +10,11 @@ import PurchaseCourse from '@uz/unitz-pages/PurchaseCourse';
 import Layout from '@uz/unitz-layout-web/LayoutMain';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 
-import PageData from '../../../data/PageDataQuery';
 import _ from 'lodash';
 import useRoute from '@vl/hooks/useGbRoute';
 import CourseModel from '@uz/unitz-models/CourseModel';
+
+import PageData from '../../../data/PageDataQuery';
 
 export const component = withPageContext((props) => {
   const route = useRoute();
