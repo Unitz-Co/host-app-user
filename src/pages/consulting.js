@@ -4,6 +4,7 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import HomePage from '@uz/unitz-pages/CFHomePageLifeStyle';
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 import App from '@uz/unitz-app-web/UserApp';
 
@@ -21,6 +22,7 @@ const HomeIndex = withPageContext((props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <HomePage />
+            <FacebookMessenger />
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>

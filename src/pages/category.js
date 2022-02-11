@@ -9,6 +9,7 @@ import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 import CategoryListPage from '@uz/unitz-pages/CategoryList';
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 import withPageContext, { provideData } from '@uz/unitz-pages/withPageContext';
 import useRoute from '@vl/hooks/useGbRoute';
 
@@ -72,6 +73,7 @@ const CategoryIndex = withPageContext((props) => {
                 ctx.set('categories', categories);
               })}
               <CategoryListPage />
+              <FacebookMessenger />
             </DIV>
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
