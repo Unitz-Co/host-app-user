@@ -11,6 +11,8 @@ import Layout from '@uz/unitz-layout-web/LayoutMain';
 import AdvisorProfile from '@uz/unitz-pages/AdvisorProfile';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
+
 import PageData from '../data/PageDataQuery';
 
 const AdvisorIndex = withPageContext((props) => {
@@ -23,6 +25,7 @@ const AdvisorIndex = withPageContext((props) => {
           <Layout.POS name="app-body">
             <div className="wrapper app-row">
               <AdvisorProfile />
+              <FacebookMessenger />
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>

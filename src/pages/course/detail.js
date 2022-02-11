@@ -11,6 +11,7 @@ import _ from 'lodash';
 import useRoute from '@vl/hooks/useGbRoute';
 import CourseDetail from '@uz/unitz-pages/CourseDetail';
 import CourseModel from '@uz/unitz-models/CourseModel';
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 import { Helmet } from 'react-helmet';
 
 const Index = withPageContext((props) => {
@@ -60,6 +61,7 @@ const Index = withPageContext((props) => {
                   <CourseDetail />
                 </div>
               </div>
+              <FacebookMessenger />
             </Layout.POS>
             <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
           </DIV>
