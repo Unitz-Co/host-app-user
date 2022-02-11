@@ -5,6 +5,7 @@ import DIV from '@vl/redata/DIV.macro';
 
 import HomeEducationPage from '@uz/unitz-pages/HomeEducation';
 import withPageContext from '@uz/unitz-pages/withPageContext';
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 import App from '@uz/unitz-app-web/UserApp';
 
 import Layout from '@uz/unitz-layout-web/LayoutMain';
@@ -20,6 +21,7 @@ const HomeEducationIndex = withPageContext((props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <HomeEducationPage />
+            <FacebookMessenger />
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>

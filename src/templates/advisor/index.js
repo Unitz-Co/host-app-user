@@ -11,7 +11,7 @@ import AdvisorProfile from '@uz/unitz-pages/AdvisorProfile';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 import useRoute from '@vl/hooks/useGbRoute';
 import PageData from '../../data/PageDataQuery';
-
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 export const component = withPageContext((props) => {
   const pageContext = useRoute().getPageContext();
   return (
@@ -35,6 +35,7 @@ export const component = withPageContext((props) => {
                 <AdvisorProfile />
               </div>
             </div>
+            <FacebookMessenger />
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>

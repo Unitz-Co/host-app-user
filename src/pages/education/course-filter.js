@@ -4,6 +4,7 @@ import { ctx } from '@vl/redata';
 import DIV from '@vl/redata/DIV.macro';
 
 import EducationCourseFilter from '@uz/unitz-pages/EducationCourseFilter';
+import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 import App from '@uz/unitz-app-web/UserApp';
 import SEO from '@uz/unitz-layout-web/SEO';
@@ -28,6 +29,7 @@ const FilterIndex = withPageContext((props) => {
             </Layout.POS>
             <Layout.POS name="app-body">
               <EducationCourseFilter />
+              <FacebookMessenger />
             </Layout.POS>
             <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
           </DIV>
