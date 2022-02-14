@@ -59,9 +59,9 @@ const Index = withPageContext((props) => {
               <div className="bg-white500">
                 <div className="wrapper app-row">
                   <CourseDetail />
+                  <FacebookMessenger />
                 </div>
               </div>
-              <FacebookMessenger />
             </Layout.POS>
             <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
           </DIV>
