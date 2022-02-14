@@ -58,6 +58,7 @@ const Index = withPageContext((props) => {
               <div className="bg-white500">
                 <div className="wrapper app-row">
                   <CourseDetail />
+                  <FacebookMessenger />
                 </div>
               </div>
             </Layout.POS>
