@@ -8,7 +8,7 @@ import SEO from '@uz/unitz-layout-web/SEO';
 
 import Layout from '@uz/unitz-layout-web/LayoutUserProfile';
 import withPageContext from '@uz/unitz-pages/withPageContext';
-// import UserNotification from '@uz/unitz-pages/UserNotification';
+import SettingPage from '@uz/unitz-pages/UserSetting';
 
 import PageData from '../../data/PageDataQuery';
 
@@ -20,12 +20,12 @@ const UserSettingIdx = withPageContext((props) => {
           <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <div className="min-h-full bg-background1">User profile menu - Setting page</div>
+            <div className="min-h-full bg-background1">
+              <SettingPage />
+            </div>
           </Layout.POS>
           <Layout.POS name="app-footer">
-            <div className="hidden min-lg:block">
-              {ctx.apply('ctf.renderSection', { name: 'FooterSection' })}
-            </div>
+            <div className="hidden min-lg:block">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</div>
           </Layout.POS>
         </DIV>
       </Layout>
