@@ -3,9 +3,9 @@ name: Stage build
 on:
   push:
     branches:
-      - "stage"
+      - "staging"
 jobs:
-  stage:
+  staging:
     runs-on: ubuntu-latest
     env:
       working-directory: ./ws-app-web/packages/host-app-user
@@ -47,6 +47,7 @@ jobs:
           done
           git submodule sync
           git submodule update --init --recursive --remote --force
+          git submodule foreach --recursive git checkout -B staging
       - name: retrive certs and env
         working-directory: ${{env.working-directory}}
         run: |

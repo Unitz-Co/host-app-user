@@ -3,7 +3,7 @@ name: stage incbuild
 on:
   push:
     branches:
-      - "master"
+      - "staging"
 jobs:
   incbuild:
     runs-on: ubuntu-latest
@@ -47,6 +47,7 @@ jobs:
           done
           git submodule sync
           git submodule update --init --recursive --remote --force
+          git submodule foreach --recursive git checkout -B staging
       - name: retrive certs and env
         working-directory: ${{env.working-directory}}
         run: |
