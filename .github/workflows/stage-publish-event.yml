@@ -46,7 +46,7 @@ jobs:
           done
           git submodule sync
           git submodule update --init --recursive --remote --force
-          git submodule foreach --recursive git checkout -B staging
+          git submodule foreach --recursive git checkout -b staging origin/staging
       - name: retrive certs and env
         working-directory: ${{env.working-directory}}
         run: |
