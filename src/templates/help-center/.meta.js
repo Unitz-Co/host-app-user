@@ -20,7 +20,7 @@ exports.createPages = withLocale(async function(item, gatsby) {
               contentful_id
               __typename
               title
-              fixed(width: 750) {
+              fixed(width: 850) {
                 src
               }
             }
