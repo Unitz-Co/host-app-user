@@ -28,6 +28,9 @@ const querystring = require('querystring');
 routeStore.addRule('courseDetail', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      if (_.get(params, 'referral_code')) {
+        return `/courses/${_.get(params, 'slug')}?referral_code=${_.get(params, 'referral_code')}`;
+      }
       return `/courses/${_.get(params, 'slug')}`;
     }
 
@@ -37,6 +40,7 @@ routeStore.addRule('courseDetail', {
   },
   parse: (urlObject) => {
     const params = {};
+    console.log('parse', params);
     for (let param in urlObject.searchParams) {
       params[param] = urlObject.searchParams.get(param);
     }
