@@ -3,7 +3,7 @@ import React from 'react';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 import App from '@uz/unitz-app-web/UserApp';
 import Layout from '@uz/unitz-layout-web/LayoutUserHelpCenter';
-import PageData from '../../data/PageDataQuery';
+import PageData from '../data/PageDataQuery';
 import DIV from '@vl/redata/DIV.macro';
 import SEO from '@uz/unitz-layout-web/SEO';
 import { ctx } from '@vl/redata';

@@ -20,7 +20,12 @@ export const component = withPageContext((props) => {
     <App>
       <Layout location={props.location} PageData={PageData}>
         <DIV>
-          <SEO pageData={ctx.apply('ctf.findPage', { name: 'Homepage' })} />
+          <SEO
+            pageData={{
+              ...ctx.apply('ctf.findPage', { name: 'Homepage' }),
+              seoTitle: `${_.get(pageContext, 'params.title')}`,
+            }}
+          />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <HelpCenter />
