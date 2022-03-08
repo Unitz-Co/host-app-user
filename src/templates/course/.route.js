@@ -3,35 +3,31 @@ const slugify = require('slugify');
 const { routeStore } = require('@vl/mod-utils/gatsbyRouteStore');
 const querystring = require('querystring');
 
-// routeStore.addRule('course', {
-//   url: (params) => {
-//     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
-//       return `/courses/${_.get(params, 'slug')}`;
-//     }
+routeStore.addRule('course', {
+  url: (params) => {
+    if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      return `/courses/${_.get(params, 'slug')}`;
+    }
 
-//     let search = `${querystring.stringify(params)}`;
-//     search = search ? `?${search}` : '';
-//     return `/course${search}`;
-//   },
-//   parse: (urlObject) => {
-//     const params = {};
-//     for (let param in urlObject.searchParams) {
-//       params[param] = urlObject.searchParams.get(param);
-//     }
-//     return params;
-//   },
-//   match: (urlObject) => {
-//     return urlObject.pathname === 'course';
-//   },
-// });
+    let search = `${querystring.stringify(params)}`;
+    search = search ? `?${search}` : '';
+    return `/course${search}`;
+  },
+  parse: (urlObject) => {
+    const params = {};
+    for (let param in urlObject.searchParams) {
+      params[param] = urlObject.searchParams.get(param);
+    }
+    return params;
+  },
+  match: (urlObject) => {
+    return urlObject.pathname === 'course';
+  },
+});
 
 routeStore.addRule('courseDetail', {
   url: (params) => {
-    console.log('@url', params);
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
-      if (_.get(params, 'referral_code')) {
-        return `/courses/${_.get(params, 'slug')}?referral_code=${_.get(params, 'referral_code')}`;
-      }
       return `/courses/${_.get(params, 'slug')}`;
     }
 
@@ -41,7 +37,6 @@ routeStore.addRule('courseDetail', {
   },
   parse: (urlObject) => {
     const params = {};
-    console.log('@parse', urlObject);
     for (let param in urlObject.searchParams) {
       params[param] = urlObject.searchParams.get(param);
     }
