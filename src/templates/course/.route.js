@@ -88,8 +88,9 @@ routeStore.addRule('coursePreview', {
 routeStore.addRule('coursePurchase', {
   url: (params) => {
     let search = `${querystring.stringify(_.pick(params, ['id']))}`;
+    const referral_code = _.get(params, 'referral_code') ? `&referral_code=${_.get(params, 'referral_code')}` : '';
     search = search ? `?${search}` : '';
-    return `/course/purchase${search}`;
+    return `/course/purchase${search}${referral_code}`;
   },
   parse: (urlObject) => {
     const params = {};
