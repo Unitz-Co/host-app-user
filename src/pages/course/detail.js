@@ -32,7 +32,7 @@ const Index = withPageContext((props) => {
   }, [courseId]);
 
   const course = _.get(items, '0');
-
+  console.log({ PageData });
   return (
     <>
       <Helmet>

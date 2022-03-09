@@ -6,6 +6,11 @@ const querystring = require('querystring');
 routeStore.addRule('course', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      if (!!_.get(params, 'refferal_code')) {
+        let referral = `${querystring.stringify(_.pick(params, ['refferal_code']))}`;
+        referral = referral ? `?${referral}` : '';
+        return `/courses/${_.get(params, 'slug')}${referral}`;
+      }
       return `/courses/${_.get(params, 'slug')}`;
     }
 
@@ -28,6 +33,11 @@ routeStore.addRule('course', {
 routeStore.addRule('courseDetail', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      if (!!_.get(params, 'refferal_code')) {
+        let referral = `${querystring.stringify(_.pick(params, ['refferal_code']))}`;
+        referral = referral ? `?${referral}` : '';
+        return `/courses/${_.get(params, 'slug')}${referral}`;
+      }
       return `/courses/${_.get(params, 'slug')}`;
     }
 
