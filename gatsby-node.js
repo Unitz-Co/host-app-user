@@ -18,6 +18,10 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
             test: /fabric/,
             use: loaders.null(),
           },
+          {
+            test: /canvas/,
+            use: loaders.null(),
+          },
         ],
       },
     });
