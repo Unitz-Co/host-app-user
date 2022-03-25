@@ -4,7 +4,8 @@ import useRoute from '@vl/hooks/useGbRoute';
 
 import PageData_vi from './locales/vi';
 import PageData_en from './locales/en';
-
+import 'moment/locale/vi';
+import 'moment/locale/en-gb';
 const locales = {
   vi: PageData_vi,
   en: PageData_en,
