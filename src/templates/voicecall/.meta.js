@@ -33,55 +33,56 @@ const getAllAdvisors = async () => {
 };
 
 exports.createPages = withLocale(async function(item, gatsby) {
-  const localeConfig = this;
-  // @update query
-  const allNodes = await gatsby.graphql(`
-  query advisorQuery {
-    allContentfulAdvisorProfile {
-      nodes {
-        id: contentful_id
-        displayName
-        email
-        slug
-      }
-    }
-  }`);
-  const advisors = await getAllAdvisors();
-  const advisorProfiles = _.get(allNodes, 'data.allContentfulAdvisorProfile.nodes', []);
-  const advisorProfilesMapByProfileId = _.keyBy(advisorProfiles, 'id');
+  return [];
+  // const localeConfig = this;
+  // // @update query
+  // const allNodes = await gatsby.graphql(`
+  // query advisorQuery {
+  //   allContentfulAdvisorProfile {
+  //     nodes {
+  //       id: contentful_id
+  //       displayName
+  //       email
+  //       slug
+  //     }
+  //   }
+  // }`);
+  // const advisors = await getAllAdvisors();
+  // const advisorProfiles = _.get(allNodes, 'data.allContentfulAdvisorProfile.nodes', []);
+  // const advisorProfilesMapByProfileId = _.keyBy(advisorProfiles, 'id');
 
-  if (process.env.GATSBY_APP_ENV) {
-    return;
-  }
+  // if (process.env.GATSBY_APP_ENV) {
+  //   return;
+  // }
 
-  return Promise.all(
-    advisors.map((advisorData) => {
-      const profileId = _.get(advisorData, 'profile.ref_ctf_eid');
-      const advisor = {
-        ...advisorData,
-        profile: {
-          ...advisorData.profile,
-          ..._.get(advisorProfilesMapByProfileId, profileId),
-        },
-      };
+  // return Promise.all(
+  //   advisors.map((advisorData) => {
+  //     const profileId = _.get(advisorData, 'profile.ref_ctf_eid');
+  //     const advisor = {
+  //       ...advisorData,
+  //       profile: {
+  //         ...advisorData.profile,
+  //         ..._.get(advisorProfilesMapByProfileId, profileId),
+  //       },
+  //     };
 
-      const advisorSlug = localeConfig.langSlug(routeStore.toUrl(RULE_NAME, advisor));
-      const advisorPath = path.join('/', advisorSlug);
+  //     const advisorSlug = localeConfig.langSlug(routeStore.toUrl(RULE_NAME, advisor));
+  //     const advisorPath = path.join('/', advisorSlug);
 
-      console.log('creating page', advisorPath);
-      const pageContext = _.cloneDeep({
-        id: _.get(advisor, 'id', 'id'),
-        slug: advisorSlug,
-        params: {
-          ...advisor,
-          service_kind: 'voice',
-        },
-      });
-      return gatsby.actions.createPage({
-        path: advisorPath,
-        component: item.resolvers.component(gatsby),
-        context: pageContext,
-      });
-    })
-  );
+  //     console.log('creating page', advisorPath);
+  //     const pageContext = _.cloneDeep({
+  //       id: _.get(advisor, 'id', 'id'),
+  //       slug: advisorSlug,
+  //       params: {
+  //         ...advisor,
+  //         service_kind: 'voice',
+  //       },
+  //     });
+  //     return gatsby.actions.createPage({
+  //       path: advisorPath,
+  //       component: item.resolvers.component(gatsby),
+  //       context: pageContext,
+  //     });
+  //   })
+  // );
 });

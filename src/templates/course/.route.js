@@ -60,7 +60,9 @@ routeStore.addRule('courseDetail', {
 routeStore.addRule('filterCourse', {
   url: (params) => {
     const id = _.get(params, 'id', 'unknown');
-    return `/education/course-filter?category=${id}`;
+    let search = `${querystring.stringify(_.pick(params, ['category', 'search']))}`;
+    search = search ? `?${search}` : '';
+    return `/education/course-filter${search}`;
   },
   parse: (urlObject) => {
     const params = {};
