@@ -8,11 +8,11 @@ import SEO from '@uz/unitz-layout-web/SEO';
 
 import Layout from '@uz/unitz-layout-web/LayoutUserProfile';
 import withPageContext from '@uz/unitz-pages/withPageContext';
-import UserProfile from '@uz/unitz-pages/UserProfile';
+import UserMessage from '@uz/unitz-pages/UserMessage';
 
 import PageData from '../../data/PageDataQuery';
 
-const UserProfileIdx = withPageContext((props) => {
+const UserProfileMessage = withPageContext((props) => {
   return (
     <App>
       <Layout location={props.location} PageData={PageData}>
@@ -21,7 +21,7 @@ const UserProfileIdx = withPageContext((props) => {
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
             <div className="min-h-full bg-background1">
-              <UserProfile />
+              <UserMessage />
             </div>
           </Layout.POS>
           <Layout.POS name="app-footer">
@@ -33,4 +33,4 @@ const UserProfileIdx = withPageContext((props) => {
   );
 });
 
-export default UserProfileIdx;
+export default UserProfileMessage;
