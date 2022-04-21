@@ -52,3 +52,24 @@ routeStore.addRule('meCourseDetail', {
     return urlObject.pathname === 'me/course';
   },
 });
+routeStore.addRule('meMessageDetail', {
+  url: (params) => {
+    if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      return `/me/message/${_.get(params, 'slug')}`;
+    }
+
+    let search = `${querystring.stringify(_.pick(params, ['id']))}`;
+    search = search ? `?${search}` : '';
+    return `/me/message${search}`;
+  },
+  parse: (urlObject) => {
+    const params = {};
+    for (let param in urlObject.searchParams) {
+      params[param] = urlObject.searchParams.get(param);
+    }
+    return params;
+  },
+  match: (urlObject) => {
+    return urlObject.pathname === 'me/course';
+  },
+});
