@@ -25,6 +25,15 @@ routeStore.addRule('course', {
   },
 });
 
+routeStore.addRule('course:origin', {
+  url: (params) => {
+    const user_id = _.get(params, 'user_id');
+    if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
+      return `${routeStore.getAppOrigin('user')}/courses/${_.get(params, 'slug')}`;
+    }
+    return `${routeStore.getAppOrigin('user')}/course/detail?id=${_.get(params, 'id')}`;
+  },
+});
 routeStore.addRule('courseDetail', {
   url: (params) => {
     if (process.env.GATSBY_APP_ENV && _.get(params, 'slug')) {
