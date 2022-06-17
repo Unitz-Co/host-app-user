@@ -25,7 +25,7 @@ const ResetIndex = withPageContext((props) => {
               <FormReset />
             </div>
           </Layout.POS>
-          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'authFooterSection' })}</Layout.POS>
+          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>
       </Layout>
     </App>
