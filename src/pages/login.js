@@ -22,7 +22,7 @@ const LoginIndex = withPageContext((props) => {
           <Layout.POS name="app-body">
             <LoginPage />
           </Layout.POS>
-          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'authFooterSection' })}</Layout.POS>
+          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>
       </Layout>
     </App>

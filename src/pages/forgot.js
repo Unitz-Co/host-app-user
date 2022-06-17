@@ -22,7 +22,7 @@ const ForgotIndex = withPageContext((props) => {
           <Layout.POS name="app-body">
             <ForgotPasswordPage />
           </Layout.POS>
-          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'authFooterSection' })}</Layout.POS>
+          <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>
       </Layout>
     </App>
