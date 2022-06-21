@@ -51,11 +51,11 @@ export const component = withPageContext((props) => {
           />
           <Layout.POS name="app-header">{ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}</Layout.POS>
           <Layout.POS name="app-body">
-            <div className="wrapper app-row">
-              <div className="relative overflow-hidden">
-                <PurchaseCourse />
-              </div>
-            </div>
+            {/* <div className="wrapper app-row">
+              <div className="relative overflow-hidden"> */}
+            <PurchaseCourse />
+            {/* </div>
+            </div> */}
           </Layout.POS>
           <Layout.POS name="app-footer">{ctx.apply('ctf.renderSection', { name: 'FooterSection' })}</Layout.POS>
         </DIV>
