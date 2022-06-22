@@ -43,8 +43,7 @@ const Index = withPageContext((props) => {
           <DIV>
             <SEO
               pageData={{
-                ...ctx.apply('ctf.findPage', { name: 'Homepage' }),
-                seoTitle: `${_.get(course, 'name', '')} | Unitz`,
+                seoTitle: `${_.get(course, 'name')} | Unitz`,
                 seoMetaDescription: {
                   seoMetaDescription: `${_.get(course, 'description', '')}`,
                 },
