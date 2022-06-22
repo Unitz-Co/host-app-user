@@ -43,7 +43,7 @@ const Index = withPageContext((props) => {
           <DIV>
             <SEO
               pageData={{
-                seoTitle: `${_.get(course, 'name', '')} | Unitz`,
+                seoTitle: `${_.get(course, 'name')} | Unitz`,
                 seoMetaDescription: {
                   seoMetaDescription: `${_.get(course, 'description', '')}`,
                 },
