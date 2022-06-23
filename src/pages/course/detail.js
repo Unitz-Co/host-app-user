@@ -41,15 +41,7 @@ const Index = withPageContext((props) => {
       <App>
         <Layout location={props.location} PageData={PageData}>
           <DIV>
-            <SEO
-              pageData={{
-                seoTitle: `${_.get(course, 'name', '')} | Unitz`,
-                seoMetaDescription: {
-                  seoMetaDescription: `${_.get(course, 'description', '')}`,
-                },
-                siteImage: _.get(course, 'photo_url', ''),
-              }}
-            />
+            <SEO />
             <Layout.POS name="app-header">
               {ctx.apply('ctf.renderSection', { name: 'articleNavbarSection' })}
             </Layout.POS>
