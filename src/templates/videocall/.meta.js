@@ -53,6 +53,7 @@ exports.createPages = withLocale(async function(item, gatsby) {
   if (process.env.GATSBY_APP_ENV) {
     return;
   }
+  return Promise.all([]);
 
   return Promise.all(
     advisors.map((advisorData) => {
