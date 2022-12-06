@@ -8,7 +8,7 @@ import FacebookMessenger from '@uz/unitz-components-web/FacebookMessenger';
 import withPageContext from '@uz/unitz-pages/withPageContext';
 import App from '@uz/unitz-app-web/UserApp';
 
-import Layout from '@uz/unitz-layout-web/LayoutMain';
+import Layout from '@uz/unitz-layout-web/LayoutOnlySection';
 import SEO from '@uz/unitz-layout-web/SEO';
 
 import PageData from '../data/PageDataQuery';
